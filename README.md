@@ -7,10 +7,12 @@
 ***********************
 Antimicrobial Resistance (AMR) occurs when bacteria, viruses, fungi and parasites evolve over time and no longer respond to medicines making infections harder to treat and increasing the risk of disease spread, severe illness and death. AMR is a much overlooked aspect in the field of public health since the predicted mortality rate due to AMR by the year 2050 is more concerning than cancer<sup>1</sup>.
 
-Some examples of so called 'superbugs are,
+Some examples of so called 'superbugs' are,
 
-1.Drug resistant tuberculosis.   
+1.Drug resistant tuberculosis. 
+
 2.Methicillin-resistant Staphylococcus aureus.  
+
 3.Multidrug-resistant Pseudomonas aeruginosa.  
 
 Both genotypic and phenotypic drug susceptibility test is used clinically. Phenotypic DST have limitations including extended turnaround time for slow-growing bacteria such as Mycobacterium tuberculosis (MTB) and bias due to potential contamination<sup>2</sup>.
