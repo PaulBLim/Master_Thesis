@@ -9,29 +9,25 @@ Author - Varun Sree Bholalayam (00807289)
 
 Antimicrobial Resistance (AMR) occurs when bacteria, viruses, fungi and parasites evolve over time and no longer respond to medicines making infections harder to treat and increasing the risk of disease spread, severe illness and death. AMR is a much overlooked aspect in the field of public health since the predicted mortality rate due to AMR by the year 2050 is more concerning than cancer<sup>1</sup>.
 
-Some examples of so called "superbugs" are:
+Some examples of dangerous organisms with a high AMR potential are:
 
 1. Drug resistant tuberculosis
 2. Methicillin-resistant Staphylococcus aureus
 3. Multidrug-resistant Pseudomonas aeruginosa.
 
-Both genotypic and phenotypic drug susceptibility tests (DST) are used clinically. Phenotypic DST have limitations including extended turnaround time for slow-growing bacteria such as Mycobacterium tuberculosis (MTB) and bias due to potential contamination<sup>2</sup>.
+Drug susceptibility tests (DST) is a typical method to determine the AMR against drugs. Two well-known clinical DST methods are genotypic and phenotypic DST. Phenotypic DST have limitations including extended turnaround time for slow-growing bacteria such as Mycobacterium tuberculosis (MTB) and bias due to potential contamination<sup>2</sup>. A state-of-the-art alternative to DST is gene sequencing and AMR analysis through machine learning (ML).
 
-<!-- I don't know how to connect the previous paragraph -->
+Currently tools such as ARIBA, Resfinder and databases such as CARD, ARDB are used to analyse whether a known AMR gene is present in the sequenced data of a bacteria using various assembly and mapping algorithms. Although these tools are efficient in finding the presence of known AMR genes, the need of the hour demands approach that can predict whether a known first line drug is effective in treatment or not. One such prediction approach is rule-based ML (RBML).
 
-Currently tools such as ARIBA, Resfinder and databases such as CARD, ARDB are used to analyse whether a known AMR gene is present in the sequenced data of a bacteria using various assembly and mapping algorithms. Although these tools are efficient in finding the presence of known AMR genes, the need of the hour demands tools that can predict whether a known first line drug is effective in treatment or not. Rule-based predictors exist such as Mykrobe predictor which uses De Bruijn graph representation of bacterial diversity to identify species and resistance profiles of clinical isolates<sup>3</sup>. Since genetic mechanisms that result in evolution of AMR genes are rapid, the competence of deterministic AI models should be scrutinized. A study published in 2022 Feb 14 is brought to the spotlight here<sup>2</sup>.
+An example of a RBML tool is Mykrobe predictor, which uses De Bruijn graph representation of bacterial diversity to identify species and resistance profiles of clinical isolates<sup>3</sup>. However since genetic mechanisms that result in evolution of AMR genes are rapid, the competence of deterministic ML methods like RBML is questionable. A recent study published in 2022 found that convolutional neural networks (CNN) have a greater prediction rate compared to traditional ML algorithms like logistic regression and random forest <!--including RBML?--><sup>2</sup>.
 
-<!-- AI models should be scrutinizied => isn't that a proposal? (compared to the problem) -->
-<!-- I would modify the last sentence. What does the study say? -->
+However <sup>2</sup> was not replicated nor applied on other bacteria.
 
+## Research Questions
 
-## Research Question
+The motivation for the following research questions stem from <sup>2</sup>:
 
-Objective of this thesis is to compare and evaluate the efficiency of traditional machine learning approaches (logistic regression and random forest) and deep learning approach using a convolutional neural network (CNN) for predicting drug resistance in tuberculosis.
-
-The questions aimed to be answered are:
-
-1. How does logistic regression and random forest algorithms perform compared to a CNN for predicting drug resistance in tuberculosis? 
+1. How does logistic regression and random forest algorithms perform compared to a CNN for predicting drug resistance in tuberculosis? <!-- this is the same question in the research paper, isn't it? If yes, then write that you want to replicate the results and then later apply the method on Staphy. aur.-->
 2. How does these aforementioned machine learning approaches compare to the state-of-the-art rule-based predictor Mykrobe?
 3. Can the CNN part of the pipeline be improved for higher accuracy by hyperparameter tuning?
 4. Can the same pipeline be tweaked to predict drug resistance in Staphylococcus aureus?
@@ -48,12 +44,9 @@ The questions aimed to be answered are:
 7. Lastly I plan to use the same machine and deep learning pipeline to try and build a model for predicting drug susceptibility in Staphylococcus aureus.
 
 
-## Goal
+## Research Goal
 
-Goal is to output and compare the features such as precision, sensitivity, specificity, accuracy, F1 and G-mean of all the models as well as Mykrobe predictor for MTB and attempt hyperparameter tuning to improve these features if possible. Thenceforth,this work can pave the way for a more efficient DST for Staphylococcus aureus.
-
-<!-- last sentence: which approach? 
-I would also write something like: This work can pave the way for a more efficient DST for  Staphylococcus aureus  -->
+Goal is to output and compare the features such as precision, sensitivity, specificity, accuracy, F1 and G-mean of all the models as well as Mykrobe predictor for MTB and attempt hyperparameter tuning to improve these features if possible. Thenceforth, this work can pave the way for a more efficient DST for Staphylococcus aureus.
 
 
 ## Time Plan
