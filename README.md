@@ -19,7 +19,7 @@ Drug susceptibility tests (DST) is a typical method to determine whether the pat
 
 An example of a genotypic DST tool is Mykrobe predictor, which uses De Bruijn graph representation of bacterial diversity to identify species and resistance profiles of clinical isolates<sup>4</sup>. Mykrobe employs a rule based machine learning algorithm for prediction. However since genetic mechanisms that result in evolution of AMR genes are rapid, the competence of deterministic ML methods like RBML is questionable. 
 
-A recent study published in 2022 compared traditional ML, CNN, RBML and reported that CNN had higher accuracy. However the used CNN leaves room for improvement with respect to the used hyperparameters for training. Moreover paper<sup>2</sup> was not replicated nor applied on other bacteria.
+A recent study<sup>2</sup> published in 2022 compared traditional ML, CNN, Mykrobe and reported that CNN had higher accuracy. However the used CNN leaves room for improvement with respect to the used hyperparameters for training. Moreover paper<sup>2</sup> was not replicated nor applied on other bacteria.
 
 
 ## Research Questions
