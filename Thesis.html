@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Varun Sree Bholalayam">
+
+<title>Master Thesis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="Thesis_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Thesis_files/libs/quarto-html/quarto.js"></script>
+<script src="Thesis_files/libs/quarto-html/popper.min.js"></script>
+<script src="Thesis_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Thesis_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Thesis_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Thesis_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Thesis_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Thesis_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Thesis_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#preliminaries" id="toc-preliminaries" class="nav-link" data-scroll-target="#preliminaries"><span class="header-section-number">2</span> Preliminaries</a>
+  <ul class="collapse">
+  <li><a href="#phenotypic-dst" id="toc-phenotypic-dst" class="nav-link" data-scroll-target="#phenotypic-dst"><span class="header-section-number">2.1</span> Phenotypic DST</a></li>
+  <li><a href="#genotypic-dst" id="toc-genotypic-dst" class="nav-link" data-scroll-target="#genotypic-dst"><span class="header-section-number">2.2</span> Genotypic DST</a></li>
+  <li><a href="#ariba" id="toc-ariba" class="nav-link" data-scroll-target="#ariba"><span class="header-section-number">2.3</span> ARIBA</a></li>
+  <li><a href="#mykrobe" id="toc-mykrobe" class="nav-link" data-scroll-target="#mykrobe"><span class="header-section-number">2.4</span> Mykrobe</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning"><span class="header-section-number">2.5</span> Machine Learning</a>
+  <ul class="collapse">
+  <li><a href="#logistical-regression" id="toc-logistical-regression" class="nav-link" data-scroll-target="#logistical-regression"><span class="header-section-number">2.5.1</span> Logistical regression</a></li>
+  <li><a href="#random-forest" id="toc-random-forest" class="nav-link" data-scroll-target="#random-forest"><span class="header-section-number">2.5.2</span> Random Forest</a></li>
+  </ul></li>
+  <li><a href="#deep-learning" id="toc-deep-learning" class="nav-link" data-scroll-target="#deep-learning"><span class="header-section-number">2.6</span> Deep Learning</a>
+  <ul class="collapse">
+  <li><a href="#cnn" id="toc-cnn" class="nav-link" data-scroll-target="#cnn"><span class="header-section-number">2.6.1</span> CNN</a></li>
+  </ul></li>
+  <li><a href="#f-measure" id="toc-f-measure" class="nav-link" data-scroll-target="#f-measure"><span class="header-section-number">2.7</span> F-measure</a></li>
+  </ul></li>
+  <li><a href="#replicated-amr-pipeline" id="toc-replicated-amr-pipeline" class="nav-link" data-scroll-target="#replicated-amr-pipeline"><span class="header-section-number">3</span> Replicated AMR pipeline</a>
+  <ul class="collapse">
+  <li><a href="#preparing-data" id="toc-preparing-data" class="nav-link" data-scroll-target="#preparing-data"><span class="header-section-number">3.1</span> Preparing Data</a>
+  <ul class="collapse">
+  <li><a href="#downloading-the-fasta-files-using-sra-toolkit" id="toc-downloading-the-fasta-files-using-sra-toolkit" class="nav-link" data-scroll-target="#downloading-the-fasta-files-using-sra-toolkit"><span class="header-section-number">3.1.1</span> Downloading the fasta files using SRA Toolkit</a></li>
+  </ul></li>
+  <li><a href="#ariba-1" id="toc-ariba-1" class="nav-link" data-scroll-target="#ariba-1"><span class="header-section-number">3.2</span> ARIBA</a></li>
+  <li><a href="#preparation-of-features-and-labels" id="toc-preparation-of-features-and-labels" class="nav-link" data-scroll-target="#preparation-of-features-and-labels"><span class="header-section-number">3.3</span> Preparation of features and labels</a></li>
+  <li><a href="#traditional-machine-learning" id="toc-traditional-machine-learning" class="nav-link" data-scroll-target="#traditional-machine-learning"><span class="header-section-number">3.4</span> Traditional Machine Learning</a></li>
+  <li><a href="#feature-selection" id="toc-feature-selection" class="nav-link" data-scroll-target="#feature-selection"><span class="header-section-number">3.5</span> Feature selection</a></li>
+  <li><a href="#cnn-model" id="toc-cnn-model" class="nav-link" data-scroll-target="#cnn-model"><span class="header-section-number">3.6</span> CNN model</a>
+  <ul class="collapse">
+  <li><a href="#feature-matrix-for-cnn" id="toc-feature-matrix-for-cnn" class="nav-link" data-scroll-target="#feature-matrix-for-cnn"><span class="header-section-number">3.6.1</span> Feature matrix for CNN</a></li>
+  <li><a href="#cnn-architecture" id="toc-cnn-architecture" class="nav-link" data-scroll-target="#cnn-architecture"><span class="header-section-number">3.6.2</span> CNN architecture</a></li>
+  </ul></li>
+  <li><a href="#evaluation-using-mykrobe" id="toc-evaluation-using-mykrobe" class="nav-link" data-scroll-target="#evaluation-using-mykrobe"><span class="header-section-number">3.7</span> Evaluation using Mykrobe</a></li>
+  </ul></li>
+  <li><a href="#contribution" id="toc-contribution" class="nav-link" data-scroll-target="#contribution"><span class="header-section-number">4</span> Contribution</a>
+  <ul class="collapse">
+  <li><a href="#hard-coded-lineage-gene-present-and-variant-features" id="toc-hard-coded-lineage-gene-present-and-variant-features" class="nav-link" data-scroll-target="#hard-coded-lineage-gene-present-and-variant-features"><span class="header-section-number">4.1</span> Hard coded lineage, gene present and variant features</a></li>
+  <li><a href="#hyperparameter-tuning" id="toc-hyperparameter-tuning" class="nav-link" data-scroll-target="#hyperparameter-tuning"><span class="header-section-number">4.2</span> Hyperparameter tuning</a>
+  <ul class="collapse">
+  <li><a href="#saving-the-model-features-and-labels" id="toc-saving-the-model-features-and-labels" class="nav-link" data-scroll-target="#saving-the-model-features-and-labels"><span class="header-section-number">4.2.1</span> Saving the model, features and labels</a></li>
+  <li><a href="#grid-search-algorithm" id="toc-grid-search-algorithm" class="nav-link" data-scroll-target="#grid-search-algorithm"><span class="header-section-number">4.2.2</span> Grid search algorithm</a></li>
+  </ul></li>
+  <li><a href="#traditional-ml-and-cnn-to-evaluate-dst-of-s.-aureus" id="toc-traditional-ml-and-cnn-to-evaluate-dst-of-s.-aureus" class="nav-link" data-scroll-target="#traditional-ml-and-cnn-to-evaluate-dst-of-s.-aureus"><span class="header-section-number">4.3</span> Traditional ML and CNN to evaluate DST of S. aureus</a></li>
+  </ul></li>
+  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation"><span class="header-section-number">5</span> Evaluation</a>
+  <ul class="collapse">
+  <li><a href="#study-replication-comparison" id="toc-study-replication-comparison" class="nav-link" data-scroll-target="#study-replication-comparison"><span class="header-section-number">5.1</span> Study replication comparison</a></li>
+  <li><a href="#hyperparameter-tuning-1" id="toc-hyperparameter-tuning-1" class="nav-link" data-scroll-target="#hyperparameter-tuning-1"><span class="header-section-number">5.2</span> Hyperparameter tuning</a></li>
+  <li><a href="#s.-aureus-dst-prediction" id="toc-s.-aureus-dst-prediction" class="nav-link" data-scroll-target="#s.-aureus-dst-prediction"><span class="header-section-number">5.3</span> S. aureus DST prediction</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">6</span> Conclusion</a></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography"><span class="header-section-number">7</span> Bibliography</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Thesis.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="Thesis.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Master Thesis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Varun Sree Bholalayam </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div style="page-break-after: always;"></div>
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>Microorganisms, more commonly known as microbes, are necessary evils not only for the sustenance of the human race but also for life on this planet. Microbes can be grouped into viruses, bacteria, archaea, fungi, and protozoa. Organisms like algae and some species of phytoplankton are unsung heroes that deserve credit for oxygenating the environment and making the earth more habitable. One can boldly say that Earth belongs to the microbes, and we exist for the survival of these microscopic masters <span class="citation" data-cites="cavicchioli2019scientists">[<a href="#ref-cavicchioli2019scientists" role="doc-biblioref">1</a>]</span>. It is impossible to live on this earth we call home without being codependent with more than 10,000 species of microorganisms that inhabits inside or alongside with us <span class="citation" data-cites="nih_microbiome_2015">[<a href="#ref-nih_microbiome_2015" role="doc-biblioref">2</a>]</span>. Even though this is the case, diseases can be caused when either some of the microorganisms that live inside us or a newly introduced species multiply unchecked and wreak havoc on normal cellular processes. These disease-causing microbes are called <em>pathogens</em>.&nbsp;</p>
+<p>The existence of microorganisms was empirically proven in a much later phase of medicinal history with the aid of simple microscopes invented in the 16th century. It took more than two centuries to distinctly postulate that some of the human ailments were caused by these organisms. Since then, we have been in constant pursuit of remedies against these organisms. The medicines against microbes are a class of drugs called antimicrobials, which include antibiotics, antivirals, antifungals, and antiparasitics.&nbsp;</p>
+<p>Antimicrobial resistance (AMR) is a growing concern, which led to the formation of a Global Action Plan (GAP) at the Sixty-eighth World Health Assembly (the decision-making body of WHO) in May 2015 <span class="citation" data-cites="noauthor_global_nodate">[<a href="#ref-noauthor_global_nodate" role="doc-biblioref">3</a>]</span>. AMR is a side effect of mutation and evolution in which bacteria, viruses, fungi, or parasites evolve the ability to resist medicines and thus further their own spread and infectious life cycle. They attain this either through gene mutation, which results in the organism being resistant to antimicrobials (vertical propagation), or by acquiring the AMR gene from other microbes (horizontal propagation). Another alarming aspect of AMR is the emergence of a class of pathogens known as <em>superbugs</em>, which are invincible to the medicinal advances achieved by humanity thus far <span class="citation" data-cites="noauthor_antimicrobial_nodate">[<a href="#ref-noauthor_antimicrobial_nodate" role="doc-biblioref">4</a>]</span>.&nbsp;</p>
+<p>According to economist Jim O’Neill, who was commissioned by the UK Government to do the Review on Antimicrobial Resistance in July 2014, in collaboration with the Wellcome Trust, a charitable foundation that primarily focuses on health research:&nbsp;</p>
+<p>​“..unless action is taken, the burden of deaths from AMR could balloon to 10 million lives each year by 2050, at a cumulative cost to global economic output of 100 trillion USD.” <span class="citation" data-cites="world_health_organization_antimicrobial_2014">[<a href="#ref-world_health_organization_antimicrobial_2014" role="doc-biblioref">5</a>]</span>&nbsp;</p>
+<p>As per the World Health Organisation (WHO), although the development of AMR occurs naturally, usually because of genetic reasons, these are some catalysts that accelerate this ordeal.&nbsp;</p>
+<ul>
+<li>misuse and overuse of antimicrobials.</li>
+<li>lack of access to clean water, sanitation, and hygiene (WASH) for both humans and animals.</li>
+<li>poor infection and disease prevention and control in health-care facilities and farms.&nbsp;</li>
+<li>poor access to quality, affordable medicines, vaccines, and diagnostics.&nbsp;</li>
+<li>lack of awareness and knowledge.</li>
+<li>lack of enforcement of legislation.&nbsp;</li>
+</ul>
+<p>In this thesis, we focus on the first point: misuse and overuse of antimicrobials. Since antimicrobials act quickly, are easily accessible, and are economically affordable, the general public uses them as a go-to medicine for every ailment. This undiagnosed introduction of antimicrobials to the body will increase the chance of AMR. This aspect can be brought under control by performing standardised Drug Susceptibility Testing (DST). Usually, while treating a pathogenic infection, there are two lines of drugs:</p>
+<ul>
+<li>first-line drugs: broad spectrum, first priority, high success rate.</li>
+<li>second-line drugs: narrow spectrum, considered a backup option, administered only if the pathogen is immune to the former.</li>
+</ul>
+<p>Since microscopic pathogens are rapidly dividing organisms, the impact of “survival of the fittest” is really high. They rapidly adapt to the environment by inventing innovative means to survive. Some even change or destroy the antibiotics. For example, some strains of <em>Klebsiella pneumoniae</em> produce carbapenemases, which are enzymes that dislodge the effects of carbapenem drugs <span class="citation" data-cites="meletis_carbapenem_2016">[<a href="#ref-meletis_carbapenem_2016" role="doc-biblioref">6</a>]</span>. Therefore, it is important to carefully monitor the susceptibility of the strain of pathogen causing the infection to different drugs so that an environment ideal for the pathogen to adapt and evolve into superbugs is not accidentally created <span class="citation" data-cites="noauthor_antibiotic_nodate">[<a href="#ref-noauthor_antibiotic_nodate" role="doc-biblioref">7</a>]</span>. This monitoring will also help in devising a drug course that will eradicate the pathogens with almost 100% success rate. Currently, there are two modes of investigative procedure for DST detection, also known as assays: phenotypic and genotypic. A <em>phenotypic assay</em> is performed in a wet lab where microbial cultures are treated with different concentrations of antimicrobials to test their susceptibility. A <em>genotypic DST</em> assay uses the sequenced data of the isolate to estimate the resistance to a specific drug.&nbsp;</p>
+<p>The phenotypic assay is currently the most widely used method to estimate DST in mid- and low-income countries due to its affordability. Although the genotypic counterpart has a disadvantage in terms of cost per test and other pre-requisites such as an uninterrupted supply of electricity, it still triumphs over the phenotypic DST in terms of speed. In the case of <em>Mycobacterium tuberculosis</em> (MTB), since phenotypic DST requires meticulous and slow steps to observe the growth of a culture in different environments, it can take 10–45 days, depending on the test kit and method used. On the other hand, genotypic assays can determine susceptibility in a matter of hours <span class="citation" data-cites="10.3389/fimmu.2022.870768">[<a href="#ref-10.3389/fimmu.2022.870768" role="doc-biblioref">8</a>]</span>. The AMR development of MTB is a major threat to the eradication of a centuries-old ailment that haunted humankind: <em>tuberculosis</em> (TB). This microscopic foe to humanity has found a way to build resistance even against new last resort TB drugs <span class="citation" data-cites="noauthor_antimicrobial_nodate">[<a href="#ref-noauthor_antimicrobial_nodate" role="doc-biblioref">4</a>]</span>. Genotypic and phenotypic DST assays can be simultaneously improved and employed to fight this battle against MTB, which killed 1.6 million people in 2021 <span class="citation" data-cites="noauthor_tuberculosis_nodate">[<a href="#ref-noauthor_tuberculosis_nodate" role="doc-biblioref">9</a>]</span>.</p>
+<p>One of the main objectives of this thesis is to replicate the results of the study: accurate and rapid prediction of tuberculosis drug resistance from genome sequence data using traditional machine learning algorithms and CNN <span class="citation" data-cites="kuang_accurate_2022">[<a href="#ref-kuang_accurate_2022" role="doc-biblioref">10</a>]</span>. In this study, traditional Machine Learning (ML) algorithms Logistic Regression (LR), Random Forest (RF), and Convolutional Neural Network (CNN), which is a deep Learning architecture — were trained and tested to estimate the Drug Susceptibility of MTB over several antibiotics. The results were then evaluated against a state-of-the-art rule-based DST application called Mykrobe. The idea behind the concept of result replication was to gain a comprehensive understanding of the fundamental steps involved in the study, with the aim of improving performance. Additionally, the intention was to adapt and implement the pipeline to a different pathogen, thereby increasing its versatility and applicability.</p>
+<p>To replicate the findings of the study, the following resources mentioned in the original study were used:</p>
+<ol type="1">
+<li>The pipeline used in the study, which can be found in <span class="citation" data-cites="github_mtb_amr_cnn">[<a href="#ref-github_mtb_amr_cnn" role="doc-biblioref">11</a>]</span>,</li>
+<li>Phenotypic DST data of 10,575 MTB isolates, which were made available by the CRyPTIC Consortium and the 100,000 Genomes Project <span class="citation" data-cites="the_cryptic_consortium_and_the_100000_genomes_project_prediction_2018">[<a href="#ref-the_cryptic_consortium_and_the_100000_genomes_project_prediction_2018" role="doc-biblioref">12</a>]</span>.</li>
+</ol>
+<p>In addition to the replication attempt, the following contributions were carried out:</p>
+<ol type="1">
+<li>Improving the performance of the CNN by tuning the hyperparameters. The original study also suggested room for improvement through hyperparameter tuning.</li>
+<li>Attempting to use a modified version of the pipeline used in the original study to estimate the drug susceptibility of Staphylococcus aureus (S. aureus).&nbsp;</li>
+</ol>
+<p>The motivation behind selecting S. aureus is because it is known for its notoriety in its ability to develop resistance to almost all antibiotics discovered <span class="citation" data-cites="chambers_waves_2009">[<a href="#ref-chambers_waves_2009" role="doc-biblioref">13</a>]</span>, especially a strain known as Methicillin-resistant S. aureus (MRSA). According to Robert Redfield, who was the Director of Centers for Disease Control and Prevention from 2018 to 2021:</p>
+<p>“Staph is a type of germ often found on human skin and on surfaces and objects that touch the skin. While the germ does not always harm people, it can get into the bloodstream and cause serious infections, which can lead to sepsis or death.” <span class="citation" data-cites="cdc_staph_infections">[<a href="#ref-cdc_staph_infections" role="doc-biblioref">14</a>]</span></p>
+<p>Upon completion of this thesis, it was found out that in current conditions, the hierarchy of performance among the three competitors is:</p>
+<ol type="1">
+<li>Mykrobe</li>
+<li>Traditional ML</li>
+<li>CNN</li>
+</ol>
+<p>Although CNN was able to outperform Mykrobe when the original study was conducted, Mykrobe has improved its database and has shown considerable improvement in its performance.</p>
+<p>The outline of the next few sections of this thesis is as follows:</p>
+<p>The second section explains in detail the terminologies introduced in subsequent sections. Additionally, the tools and methods used in the original study will also be explained.</p>
+<p>The third section sheds light on the principles, ideas, and workflow behind the study that I wish to replicate.</p>
+<p>The fourth section is dedicated to showcase my contributions to this existing study clear. An attempt to improve the existing pipeline will be elucidated.</p>
+<p>In the fifth section, the metrics of the study and my thesis are compared with each other. Moreover, the genotypic prediction, which was made using the pipeline adapted for S. aureus, will be compared with the state-of-the art rule-based DST predictor, Mykrobe.</p>
+<p>The last section summarises the thesis and provides insights about the scope and future of this thesis.</p>
+<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="preliminaries" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Preliminaries</h1>
+<p>The basic ideas and principles underlying the tools that are prerequisites in this thesis are explained. Some terminologies that will be used in the later part of the thesis are also described.</p>
+<section id="phenotypic-dst" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="phenotypic-dst"><span class="header-section-number">2.1</span> Phenotypic DST</h2>
+<p>As briefly explained in the introduction, phenotypic DST is a mode to evaluate whether a drug will have any effect on the particular pathogen causing the infection or ailment. Generally, this is achieved either by macroscopically observing the growth of the pathogen culture in a medium containing the drug and a control or quantitative detection of metabolic activity after being treated with the drug <span class="citation" data-cites="kim_drug-susceptibility_2005">[<a href="#ref-kim_drug-susceptibility_2005" role="doc-biblioref">15</a>]</span>.</p>
+<p>For example, the phenotypic DST of MTB consists of two methods. Solid and liquid culture. In solid culture, MTB growth is observable and is indicated by rough colonies and cording formations. Whereas, in liquid culture, the growth or inhibition is detected automatically by fluorescence due to oxygen consumption in the presence of MTB <span class="citation" data-cites="10.3389/fimmu.2022.870768">[<a href="#ref-10.3389/fimmu.2022.870768" role="doc-biblioref">8</a>]</span>.&nbsp;</p>
+<p>As mentioned before, this is a time-consuming process as it depends on the growth of microbial culture from swabs. This also increases the risk of contamination. &nbsp;&nbsp;</p>
+</section>
+<section id="genotypic-dst" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="genotypic-dst"><span class="header-section-number">2.2</span> Genotypic DST</h2>
+<p>Instead of manually observing the growth of the pathogen colonies or measuring the metabolic activity, genotypic assays make use of sequencing data to check whether the drugs will have any effects on the pathogen. The DNA sequence of the specific isolate is scoured to detect the presence of any genetic mutations that are known to be associated with drug susceptibility. Although expensive compared to phenotypic assays, genotypic assays have the advantage of being fast, standardised, and having high throughput <span class="citation" data-cites="10.3389/fimmu.2022.870768">[<a href="#ref-10.3389/fimmu.2022.870768" role="doc-biblioref">8</a>]</span>.</p>
+<p>Thanks to significant strides in sequencing technologies, there are currently several databases like PATRIC <span class="citation" data-cites="gillespie_patric_2011">[<a href="#ref-gillespie_patric_2011" role="doc-biblioref">16</a>]</span>, CARD <span class="citation" data-cites="alcock_card_2023">[<a href="#ref-alcock_card_2023" role="doc-biblioref">17</a>]</span>, and ReSeqTB <span class="citation" data-cites="ezewudo_integrating_2018">[<a href="#ref-ezewudo_integrating_2018" role="doc-biblioref">18</a>]</span> which have genetic sequencing data and phenotypic DST of several isolates from all around the world <span class="citation" data-cites="ngo_genomic_2019">[<a href="#ref-ngo_genomic_2019" role="doc-biblioref">19</a>]</span>. AMR prediction tools cross-check the genomic sequences of pathogens in these databases and provide a fast and accurate prognosis.</p>
+<p>The cost and time required for sequencing are diminishing, and this may lead to genotypic DST surpassing phenotypic DST in the future.</p>
+</section>
+<section id="ariba" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="ariba"><span class="header-section-number">2.3</span> ARIBA</h2>
+<p>Almost all of the current AMR detection tools utilise one of the following methods: Either the sequencing reads are aligned to a set of reference genes or they search for reference gene matches in de-novo assembled sequence data. The latter class of tools requires assembled reads as input and thus runs the risk of assembly errors and being computationally expensive.</p>
+<p>ARIBA utilises public databases such as ARG-ANNOT <span class="citation" data-cites="gupta_arg-annot_2014">[<a href="#ref-gupta_arg-annot_2014" role="doc-biblioref">20</a>]</span>, CARD <span class="citation" data-cites="alcock_card_2023">[<a href="#ref-alcock_card_2023" role="doc-biblioref">17</a>]</span>, MEGARes <span class="citation" data-cites="lakin_megares_2017">[<a href="#ref-lakin_megares_2017" role="doc-biblioref">21</a>]</span> and ResFinder <span class="citation" data-cites="florensa_resfinder_2022">[<a href="#ref-florensa_resfinder_2022" role="doc-biblioref">22</a>]</span> to locally assemble the unassembled paired end sequencing data to detect genes associated with AMR. This approach is computationally light as the assembly is targeted, i.e., out of the whole sequence, only selected gene loci are assembled and mapped. These gene loci were selected from the database that was mentioned before.</p>
+<p>First, reference sequences in the AMR database are clustered by similarity. Reads are mapped to the reference sequences to produce a set of reads for each cluster. These reads map to at least one of the sequences in that cluster. The reads for each cluster and their sequence pairs are assembled independently, and the closest reference sequence to the resulting contigs is identified. The assembly is compared to the reference sequence to identify completeness and any variants between the sequences. The reads for the cluster are mapped to the assembly and variants are called.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mgen-3-131-g001.jpg" class="img-fluid figure-img" width="500"></p>
+<figcaption class="figure-caption">ARIBA workflow. First, reference sequences in the AMR database are clustered by similarity. Input reads are mapped to the reference sequences to produce a set of reads for each cluster. These reads map to at least one of the sequences in that cluster. The reads for each cluster and their sequence pairs are assembled independently, and the closest reference sequence to the resulting contigs is identified. The assembly is compared to the reference sequence to identify completeness and any variants between the sequences. The reads for the cluster are mapped to the assembly and variants are called <span class="citation" data-cites="hunt_ariba:_2017">[<a href="#ref-hunt_ariba:_2017" role="doc-biblioref">23</a>]</span>.</figcaption>
+</figure>
+</div>
+<p>Figure 1 shows the various steps that leads to the selective mapping and aligning of raw sequence data with respect to the database provided and identifies variance to predict AMR. It first groups the reference sequences from the AMR database based on their similarity. Input reads whose AMR one intent to predict are aligned with these reference sequences, generating a collection of reads for each group, where each read corresponds to at least one sequence in that group. The reads within each cluster, along with their sequence pairs, are individually assembled, and the reference sequence most closely resembling the resulting contigs is determined. This assembly is then compared to the reference sequence to spot any variations and assess its completeness. Finally, the reads for the cluster are aligned with the assembly, and any deviations from the reference are identified. A report consisting of information about the presence or absence of variants pre-defined to be of importance to AMR is generated as the output.</p>
+</section>
+<section id="mykrobe" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="mykrobe"><span class="header-section-number">2.4</span> Mykrobe</h2>
+<p>Mykrobe <span class="citation" data-cites="bradley_rapid_2015">[<a href="#ref-bradley_rapid_2015" role="doc-biblioref">24</a>]</span> is a tool that can be run via the command line or the desktop version to take unassembled reads of isolates and use a statistical rule-based approach to create a report that is clinician-friendly. In their study published in 2015, they show how the de Bruijn graph representation of bacterial diversity can be utilised to predict the species and the susceptibility of the given isolate.</p>
+<p>According to this study, instead of the standard approach of utilising a reference genome for comparison, a new alternative approach was developed. Mykrobe assembles a reference graph of known resistant and susceptible alleles and many examples of resistant genes from different genetic backgrounds. This approach bypasses the process of assembling and mapping the input sequences to the reference sequence. Instead, Mykrobe just directly compares the de Bruijn graph of the sample isolate and the reference graph.</p>
+<p>De Bruijn graph is a form of representation of strings as overlapping subsequences (k-mers) of itself <span class="citation" data-cites="compeau_why_2011">[<a href="#ref-compeau_why_2011" role="doc-biblioref">25</a>]</span>. This form of representation is useful in pattern recognition, sequence alignment, and genome assembly. An application of this form of representation is when the whole string has to be reconstructed from fragments of itself. Since the majority of sequencing technologies utilise the shotgun sequencing method, where the DNA is cleaved into shorter fragments before being sequenced, reconstruction of the whole genome employs the de Bruijn graph to assemble these short reads.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="myk.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Mykrobe vs.&nbsp;conventional genotypic DST <span class="citation" data-cites="bradley_rapid_2015">[<a href="#ref-bradley_rapid_2015" role="doc-biblioref">24</a>]</span>. The conventional method (i) maps the reads to the reference genome to detect SNPs and genes. In Mykrobe, as depicted in option (ii) the de Bruijn graph of the sample was constructed and was compared with the de Bruijn graph of reference sequences.</figcaption>
+</figure>
+</div>
+</section>
+<section id="machine-learning" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="machine-learning"><span class="header-section-number">2.5</span> Machine Learning</h2>
+<p>Machine learning is a subset of a broader term called artificial intelligence. As opposed to its counterpart, rule-based approach, whose example was briefly explained in the previous subsection, machine learning does not require explicit input of rules or algorithms. It ‘learns’ these rules by training itself on the previous data provided. This is especially useful when we have an abundance of data and complicated patterns that are difficult to decrypt manually.</p>
+<p>A general working principle of machine learning algorithms is to create a model that is defined by some parameters. Creating a model can be somewhat simplified by saying that the algorithm tries to fit the data into a function. The model undergoes the process of learning, where a computer programme optimises these parameters using training data. This optimisation is done by constantly changing the variables inside the model so that the difference between the predicted value and the actual value diminishes. This trained model can be used to make predictions in the future <span class="citation" data-cites="noauthor_ai_nodate">[<a href="#ref-alpaydin2010introduction" role="doc-biblioref">27</a>]</span>.</p>
+<p>Machine learning algorithms can be classified into four types.</p>
+<ul>
+<li>Supervised learning: training is undergone using labelled data.</li>
+<li>Unsupervised learning: training is undergone without labelled data.</li>
+<li>Semi-Supervised Learning: training is undergone using both labelled and unlabelled data.</li>
+<li>Reinforced learning: training is undergone via a feedback-based process <span class="citation" data-cites="sharma_4_2023">[<a href="#ref-sharma_4_2023" role="doc-biblioref">28</a>]</span>.</li>
+</ul>
+<p>In this thesis, logistic regression, random forest, and convolutional neural networks are used to predict the susceptibility of a sample to different drugs. These are explained below.</p>
+<section id="logistical-regression" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="logistical-regression"><span class="header-section-number">2.5.1</span> Logistical regression</h3>
+<p>Logistical regression, which is an example of a supervised learning algorithm, is mainly used to perform binary classification of data. It is named after the function it tries to fit the data into—the logistic function, also known as the sigmoid function <span class="citation" data-cites="machinelearningmastery">[<a href="#ref-machinelearningmastery" role="doc-biblioref">29</a>]</span>.</p>
+<div class="hidden">
+<p><span class="math display">
+\sigma(x) = \frac{1}{1 + e^{-x}}
+</span></p>
+</div>
+<p>where e is Euler’s constant.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sigmoid.png" class="img-fluid figure-img" width="300"></p>
+<figcaption class="figure-caption">Sigmoid graph <span class="citation" data-cites="jang_ml-logistic_2021">[<a href="#ref-jang_ml-logistic_2021" role="doc-biblioref">30</a>]</span></figcaption>
+</figure>
+</div>
+<p>Usually, logistic regression predicts the probability of data belonging to a class. For example, to compare the weights of different individuals and group them as obese or not. After training, the model will be able to predict the probability of a person being obese when the weight is given as input. If the model gives out a number close to 0, this eventually means that the person whose weight we gave as an input has almost no probability of being obese.</p>
+<p>Given below is an example of a logistic regression equation.</p>
+<div class="hidden">
+<p><span class="math display">
+y = \frac{e^{b_0 + b_1x}}{1 + e^{b_0 + b_1x}}
+</span></p>
+</div>
+<p>Here, y is the probability that the model predicts, and x is the input value. b0 and b1 are called weights or coefficients, which adjust and update themselves constantly during the training phase until they minimise the difference between the labelled probability and the predicted probability. In other words, the weights or coefficients are ‘learned’ during the training.</p>
+</section>
+<section id="random-forest" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="random-forest"><span class="header-section-number">2.5.2</span> Random Forest</h3>
+<p>Random forest is another type of supervised machine learning algorithm that uses multiple decision trees (hence the name ‘forest’) created by randomly selecting a subset of data and features of the training data (hence the name ‘random’). A decision tree is a data classifier algorithm. In simple terms, it resembles a flowchart that starts from a point and branches out to multiple nodes, which eventually leads to the ultimate decision. A multitude of uncorrelated decision trees are randomly created using a method called bagging. Each of these trees is made to produce a decision. The decision that has the most occurrences in this pool of decisions is selected. Bagging is an abbreviation of bootstrapping and aggregation.</p>
+<p>A single decision tree is highly sensitive. That is, they vary considerably if the dataset is slightly changed. Randomly selecting samples of data and features from the training dataset (bootstrapping) and creating an ensemble of decision trees to pool each individual outcome to select the most probable out of these (aggregation) ensures high-performing prediction algorithms. It is similar to making a population of people guess the number of marbles in a jar and taking the average of all their individual answers. If the population is large enough, the average of these ‘guesses’ will be close to the actual number of marbles. If someone guesses the number to be too high, there will be someone who guesses the number too low, ultimately cancelling these variances off. Similarly, if in this forest there exists a tree that is really bad at making the decision, there will be another tree that is also equally bad, but in the opposite direction to negate this out. This is known as regression to the mean.</p>
+<p>Random forest is also used to determine the importance of different features and select the most important ones to use in the CNN since deep learning is a computationally expensive task <span class="citation" data-cites="noauthor_what_2020">[<a href="#ref-noauthor_what_2020" role="doc-biblioref">31</a>]</span>.</p>
+</section>
+</section>
+<section id="deep-learning" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="deep-learning"><span class="header-section-number">2.6</span> Deep Learning</h2>
+<p>Deep learning is a more complex subset of ML which that uses neural networks to make predictions. Neural networks mimic the biological concept of brains, which utilise millions of interconnected brain cells to make complex decisions or predictions. Much like brain cells, which utilise chemical and electrical signals to execute complex feedback loops to learn their surroundings and make decisions that are crucial for their existence, the backbone of deep learning algorithms are these neurons. ‘Deep’ in the name of deep learning refers to the presence of several hidden layers of neurons within the algorithm <span class="citation" data-cites="noauthor_what_nodate">[<a href="#ref-noauthor_what_nodate" role="doc-biblioref">32</a>]</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="deeplearning.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Deep learning example architecture <span class="citation" data-cites="towardsdatascience_training">[<a href="#ref-towardsdatascience_training" role="doc-biblioref">33</a>]</span>. Depiction of a deep network architecture with multiple layers. Each neuron in the hidden layer is connected to all the neurons in the previous layer. The number of hidden layers and the number of neurons in each hidden layer can vary depending on the architecture and purpose of the neural network.</figcaption>
+</figure>
+</div>
+<p>A neural network starts with input neurons and ends with output neurons. In between are the hidden layers, and each layer has multiple neurons that are virtually connected to all the neurons from the previous layer and the subsequent layer. The connection of nodes simply implies the flow of data between the neurons. For simplicity, if a neural network has a single hidden layer, that would imply that it has three layers, including the input nodes and the output nodes. Each neuron has a weight, and each layer has a bias, which are parameters that get learned through the process of training. These parameters, together with another parameter called the activation function, determine if the neuron in question should be made to fire and thus propagate a signal in terms of output to the next layer. This continues in the succeeding layers and leads to the firing or activation of neurons in the output layer. The number of output neurons in the output layer depends on the nature of the task the neural network is designed for. For binary classification tasks, just like the one used in the study and also in the thesis, typically one output neuron that produces a single output value that represents the probability or confidence of the input belonging to one of the two classes is present. While training, these predictions are compared with the actual labels, and an algorithm tries to minimise the difference between both by adjusting the weights and biases accordingly. This is regarded as backpropagation.</p>
+<p>A simple representation of input to a neuron would appear as follows:</p>
+<div class="hidden">
+<p><span class="math display">
+\sum_{n} w_i x_i + \text{bias} = w_1 x_1 + w_2 x_2 + ...  w_n x_n + \text{bias}
+</span></p>
+</div>
+<p>where w is the weight and x is the input to the neuron. The product of weights and the input data are subjected to an activation function that decides whether the neuron should fire or not. An example of an activation function is the sigmoid function, which was briefly explained in the previous section.</p>
+<section id="cnn" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="cnn"><span class="header-section-number">2.6.1</span> CNN</h3>
+<p>CNN is a type of deep learning algorithm that is widely used in image recognition because of its advantage in reading and predicting data that has a grid-like topology. The principle working component in a CNN is a convolutional kernel, which is made to slide through the data to extract important features. The mathematical explanation is as follows: The kernel is simply a matrix, which is usually smaller in dimension than the input data. This kernel strides through the data and performs a matrix dot product operation between the kernel matrix and a matrix of the part of data where the kernel is levitating. These dot products serve as the input for the next layer. It is to be noted that the kernel matrix is a parameter that gets learned through training <span class="citation" data-cites="mishra_convolutional_2020">[<a href="#ref-mishra_convolutional_2020" role="doc-biblioref">34</a>]</span>.</p>
+<p>In the field of image recognition, CNN has displayed outstanding performance <span class="citation" data-cites="NIPS2012_c399862d">[<a href="#ref-NIPS2012_c399862d" role="doc-biblioref">35</a>]</span>. This result is attributed to CNNs due to various factors, such as spatial hierarchies, translation invariance, and parameter sharing, within CNN architectures. This leads to an accurate prediction compared to state-of-the-art computer vision algorithm like SIFT <span class="citation" data-cites="lowe_distinctive_2004">[<a href="#ref-lowe_distinctive_2004" role="doc-biblioref">36</a>]</span>.</p>
+<p>Apart from the learnable parameters like weight, bias, and kernel, there is a class of parameters called hyperparameters that control and determine the learnable parameters. As a part of the thesis constitute hyperparameter tuning, some of these hyperparameters and their examples are described below.</p>
+<section id="activation-function" class="level4" data-number="2.6.1.1">
+<h4 data-number="2.6.1.1" class="anchored" data-anchor-id="activation-function"><span class="header-section-number">2.6.1.1</span> Activation function</h4>
+<p>The purpose of the activation function is to bring non-linearity to the model, thus adapting it to discern complex patterns <span class="citation" data-cites="noauthor_activation_nodate">[<a href="#ref-noauthor_activation_nodate" role="doc-biblioref">37</a>]</span>. In the CNN architecture used in the original study, ReLU and sigmoid functions were employed. As part of hyperparameter tuning, leaky ReLU and Mish were experimented with in this thesis. The sigmoid function was described in the logistic regression section. Here, the remaining functions are briefly explained.</p>
+<ul>
+<li>ReLU - rectified linear activation function, outputs the input directly if it is positive, and if it is negative, it will output zero. This solves the issue of gradients becoming extremely small during backpropagation, which is a problem that persists in the sigmoid function.</li>
+</ul>
+<div class="hidden">
+<p><span class="math display">
+f(x) = \max(0, x)
+</span></p>
+</div>
+<p>Here, x represents the input to the function.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="RELU.jpg" class="img-fluid figure-img" width="300"></p>
+<figcaption class="figure-caption">ReLU graph <span class="citation" data-cites="kaggle_relu_notebook">[<a href="#ref-kaggle_relu_notebook" role="doc-biblioref">38</a>]</span></figcaption>
+</figure>
+</div>
+<p>The above figure is a graphical representation of ReLU function.</p>
+<ul>
+<li>Leaky ReLU - is a modified version of ReLU where the negative values have a slight slope instead of being flat. Leaky ReLU was developed to address the issue of neurons remaining permanently inactive during training due to the presence of negative inputs.</li>
+</ul>
+<div class="hidden">
+<p><span class="math display">
+f(x) = \begin{cases}
+    x, &amp; \text{if } x \geq 0 \\
+    \alpha x, &amp; \text{if } x &lt; 0
+\end{cases}
+</span></p>
+</div>
+<p>Here, x represents the input to the function, and <span class="math inline">\alpha</span> is a slope, typically set to a small value like 0.01.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Leaky_relu.png" class="img-fluid figure-img" width="300"></p>
+<figcaption class="figure-caption">Leaky ReLU graph <span class="citation" data-cites="paperswithcode_leakyrelu">[<a href="#ref-paperswithcode_leakyrelu" role="doc-biblioref">39</a>]</span></figcaption>
+</figure>
+</div>
+<ul>
+<li>Mish is a novel, self-regularized, continuous, non-monotonic activation function. Mish was found to perform better than ReLU <span class="citation" data-cites="misra_mish_2020">[<a href="#ref-misra_mish_2020" role="doc-biblioref">40</a>]</span>.</li>
+</ul>
+<div class="hidden">
+<p><span class="math display">
+f(x) = x \cdot \tanh\left[\ln(1 + e^x)\right]
+</span></p>
+</div>
+<p>Here, x is the input to the function, tanh is the hyperbolic tangent and ln is the natural logarithm.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mish.jpeg" height="200" class="figure-img"></p>
+<figcaption class="figure-caption">Mish graph <span class="citation" data-cites="keetha_u-det_2020">[<a href="#ref-keetha_u-det_2020" role="doc-biblioref">41</a>]</span></figcaption>
+</figure>
+</div>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="loss" class="level4" data-number="2.6.1.2">
+<h4 data-number="2.6.1.2" class="anchored" data-anchor-id="loss"><span class="header-section-number">2.6.1.2</span> Loss</h4>
+<p>Loss is simply the error made in prediction while training <span class="citation" data-cites="machinelearningmastery-loss">[<a href="#ref-machinelearningmastery-loss" role="doc-biblioref">42</a>]</span>. There are several means to calculate this disparity between prediction and reality. The whole objective of the algorithm is to minimise this loss. The original paper used binary cross-entropy, while this thesis experimented with mean squared error.</p>
+<ul>
+<li>Binary cross entropy, specifically designed for binary classification problems, compares the predicted value and the actual label and sets a score for the prediction using the formula:</li>
+</ul>
+<div class="hidden">
+<p><span class="math display">
+\text{Binary cross entropy} = -\left(y \cdot \log(p) + (1 - y) \cdot \log(1 - p)\right)
+</span></p>
+</div>
+<p>Here, y is the true label (0 or 1) and p is the predicted probability of the sample.</p>
+<p>This score and the variance in prediction are directly proportional.</p>
+<ul>
+<li>Mean squared error, as the name suggests, is the mean of the square of differences in predicted and actual values. While binary cross-entropy is better suited for binary classification tasks such as drug susceptibility prediction, comparison to assess the impact of mean squared error, which heavily penalizes larger errors due to the squaring operation, on overall accuracy was conducted.</li>
+</ul>
+<div class="hidden">
+<p><span class="math display">
+MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+</span></p>
+</div>
+<p>Here, n is the number of data points, y is the actual value for the point, ŷ is the predicted value for the point.</p>
+</section>
+<section id="optimiser" class="level4" data-number="2.6.1.3">
+<h4 data-number="2.6.1.3" class="anchored" data-anchor-id="optimiser"><span class="header-section-number">2.6.1.3</span> Optimiser</h4>
+<p>This is the algorithm used to optimise the loss function described above and thus adjust the weights and biases in each neuron and layer. Usually, all optimisers work by performing gradient descent. &nbsp;Gradient descent is used to find the minimum of a function quickly. If the function is represented as a plane, the objective here is to find the lowest point. Gradient descent achieves this by randomly selecting a point initially and determining the slope of that plane, which indicates the direction of the lowest point. By taking steps in that direction and iteratively performing the same task, the objective of achieving the minimum loss function is achieved. Each step changes the trainable parameters, such as weight and bias. The study utilised Stochastic Gradient Descent as the optimizer, while the performance of Adaptive Moment Estimation and Root Mean Squared Propagation was investigated in this thesis</p>
+<ul>
+<li><p>Stochastic Gradient Descent (SGD): uses a small, random subset of the training data at a time. This randomness can help solve the issue of local optima and speed up learning.</p></li>
+<li><p>Root Mean Squared Propagation (RMS prop): RMS prop changes the learning rate for each parameter by keeping track ofthe amount of change in the parameters.</p></li>
+<li><p>Adaptive Moment Estimation (ADAM): Adam, similar to RMSprop, dynamically adapts the learning rate for each parameter, which contributes to the model’s speed. Adam combines the working principles of RMSprop and another optimisation algorithm called Momentum, which keeps track of the optimisation process’s velocity.</p></li>
+</ul>
+</section>
+<section id="learning-rate" class="level4" data-number="2.6.1.4">
+<h4 data-number="2.6.1.4" class="anchored" data-anchor-id="learning-rate"><span class="header-section-number">2.6.1.4</span> Learning rate</h4>
+<p>In the section called Optimisers, a process of taking a step towards the direction that has the most slope was discussed. The learning rate is the length of these steps taken at a time. It also indicates the speed with which the model learns. There is a tradeoff between speed and accuracy when selecting learning rates. A large learning rate may increase the momentum of learning, but it also runs the risk of overshooting. While making huge strides, there is a chance that the most optimal condition was overlooked. The reverse is also true. A small learning rate will make the model accurate but will slow the training process down. The selection of the learning rate thus depends on the problem at hand, amount and complexity of data and the model architecture. The study uses a learning rate of 0.004 and the performance of a decreased learning rate of 0.04 was tested in this thesis.</p>
+</section>
+<section id="regulariser" class="level4" data-number="2.6.1.5">
+<h4 data-number="2.6.1.5" class="anchored" data-anchor-id="regulariser"><span class="header-section-number">2.6.1.5</span> Regulariser</h4>
+<p>While training any kind of machine learning algorithm, there is always a chance of overfitting or underfitting. Overfitting occurs when the model performs too well while training data and fails to predict on test data. Underfitting is when the model fails both to find the pattern underlying the training data and to predict when new data is presented. Regularisers add a penalty to the loss function, thus restraining overfitting and introducing more generality. The original study defined a Lasso regularisation. In this thesis, the effect of Ridge regularisation was experimented.</p>
+<ul>
+<li>Lasso regularisation (L1): here the penalty added is the sum of the absolute values of the model’s weights. This eliminates some features of the model by penalising some parameters to be 0. This functions as a kind of important feature selection process.</li>
+</ul>
+<div class="hidden">
+<p><span class="math display">
+\text{Lasso}(L1) \text{ regularisation} = \lambda \sum_{j=1}^{p} |w_j|
+</span></p>
+</div>
+<p>Here, wj represents the model parameters, and <span class="math inline">\lambda</span> represents the regularisation strength.</p>
+<ul>
+<li>Ridge regularization (L2): here the penalty added is the sum of the squares of the model’s weights. Here, a different approach of spreading the impact of features is done. L2 regulariser achieves this by encouraging penalising the parameters to be small rather than 0.</li>
+</ul>
+<div class="hidden">
+<p><span class="math display">
+\text{Ridge}(L1) \text{ regularisation} =  \lambda \sum_{j=1}^{p} w_j^2
+</span></p>
+</div>
+<p>Here, wj represents the model parameters, and <span class="math inline">\lambda</span>represents the regularisation strength.</p>
+<p>In both original study and thesis, regularisation strength of 0.001 was used.</p>
+</section>
+<section id="dropout" class="level4" data-number="2.6.1.6">
+<h4 data-number="2.6.1.6" class="anchored" data-anchor-id="dropout"><span class="header-section-number">2.6.1.6</span> Dropout</h4>
+<p>Dropout is another way to regularise. The key difference between dropout and the regularisation algorithms mentioned in the previous section is that dropout is a layer specific regularisation method. This method of dealing with overfitting is done by randomly dropping or deactivating a small percentage of neurons during training from the layers where dropout is applied. Each iteration of training is done with different sets of neurons, thus introducing more generality to the model. For example, a dropout rate of 0.3 is specified in 6 layers of the model architecture in the original study. This means that each neuron has a 30% chance of being dropped out. The effects of a dropout rate of 0.1 was investigated.</p>
+</section>
+<section id="batch-size" class="level4" data-number="2.6.1.7">
+<h4 data-number="2.6.1.7" class="anchored" data-anchor-id="batch-size"><span class="header-section-number">2.6.1.7</span> Batch size</h4>
+<p>Batch size denotes the number of samples that go through the model before the model adjusts its parameters to optimise them. For example, a 256-batch size shows that 256 samples pass through the model iteratively before the loss function calculates the loss and the model optimises this. In practice, the choice of batch size is often a trade-off between efficiency, speed, and the risk of overfitting. Selecting a batch size often depends on computational efficiency and data complexity and immensity.</p>
+</section>
+<section id="epoch" class="level4" data-number="2.6.1.8">
+<h4 data-number="2.6.1.8" class="anchored" data-anchor-id="epoch"><span class="header-section-number">2.6.1.8</span> Epoch</h4>
+<p>The machine learning model determines the weights and biases that are optimal for prediction by fitting through the training data multiple times. An epoch is finished once the model loops over the entirety of the training data once. In the original study and thesis, model is compiled with epoch-100, it means that a single sample in the training dataset was used 100 times in the model. Similar to batch size selection, choice of epoch also depends on the problem at hand and computational environment.</p>
+</section>
+</section>
+</section>
+<section id="f-measure" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="f-measure"><span class="header-section-number">2.7</span> F-measure</h2>
+<p>F-measure (F1 score) is a statistical metric that is used to quantitatively describe an algorithm’s performance, like precision, accuracy, etc. The study focuses on the F-measure as it balances precision with recall and thus will serve as metrics for performance throughout this thesis. Precision is a quantitative measure of how many positive predictions made by the model were really positive (true positive). Recall or sensitivity is a measure of how many true positives were correctly predicted by the model.</p>
+<div class="hidden">
+<p><span class="math display">
+F1 = 2 \cdot \frac{\text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}
+</span></p>
+</div>
+<p>Precision is defined as the ratio of true positive predictions to the total positive predictions.</p>
+<div class="hidden">
+<p><span class="math display">
+\text{Precision} = \frac{TP}{TP + FP}
+</span></p>
+</div>
+<p>Where TP is true positive, FP is false positive.</p>
+<p>Recall is the ratio of true positive predictions to the total actual positives in the dataset.</p>
+<div class="hidden">
+<p><span class="math display">
+\text{Recall} = \frac{TP}{TP + FN}
+</span></p>
+</div>
+<p>Here, TP is true positive and FN is false negative.</p>
+<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="replicated-amr-pipeline" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Replicated AMR pipeline</h1>
+<p>In this section, the workflow and principles of the study that is attempted to replicate are described. The scripts used in the original study can be found in their repository <span class="citation" data-cites="github_mtb_amr_cnn">[<a href="#ref-github_mtb_amr_cnn" role="doc-biblioref">11</a>]</span>.</p>
+<section id="preparing-data" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="preparing-data"><span class="header-section-number">3.1</span> Preparing Data</h2>
+<p>The study focuses on creating a model that predicts the DST of four first-line TB drugs, namely ethambutol, isoniazid, rifampicin, and pyrazinamide. The data that is prerequisite for this are the phenotypic DST data and lineage data, which were procured by the study from the CRyPTIC Consortium and the 100,000 Genomes Project <span class="citation" data-cites="the_cryptic_consortium_and_the_100000_genomes_project_prediction_2018">[<a href="#ref-the_cryptic_consortium_and_the_100000_genomes_project_prediction_2018" role="doc-biblioref">12</a>]</span>.</p>
+<p>The phenotypic DST is a tab-separated values file containing the unique accession numbers of the 10,575 isolates, the country from which the isolate was collected, and the phenotypic DST data for each of the drugs (susceptibility is marked by 1, resistance by 0, and unknown DST is left blank). Lineage data is a spreadsheet file containing the list of all the isolates and their corresponding lineages.</p>
+<p>The phenotypic DST tab-separated values file can be used to extract all the unique SRA IDs available and save them in a structured file format, which we use for downloading the sequence read files.</p>
+<section id="downloading-the-fasta-files-using-sra-toolkit" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="downloading-the-fasta-files-using-sra-toolkit"><span class="header-section-number">3.1.1</span> Downloading the fasta files using SRA Toolkit</h3>
+<p>Sequence Read Archive is a database curated by the National Library of Medicine that can be used to publicly store and reproduce raw sequencing data and alignment information. Sequencing data is stored in FASTA file format and can be viewed or downloaded using an ID that looks like SRR11192683. This ID is called SRA ID.</p>
+<p>Since more than 10,000 isolates are dealt with here, the study utilises the SRA toolkit <span class="citation" data-cites="leinonen_sequence:2011">[<a href="#ref-leinonen_sequence:2011" role="doc-biblioref">43</a>]</span>. The SRA toolkit is a programme that can be used to download sequence read data or metadata through the command line and, hence, can be programmed to parallelly download the isolates.</p>
+<p>The <code>fasterq-dump</code> command from the toolkit is employed to download FASTA files from the database by providing the SRA ID as a command-line parameter. In the original study, a python script was used to parallelize the download process for a list of SRA IDs stored in a structured file format, saving the files to a designated folder.</p>
+</section>
+</section>
+<section id="ariba-1" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="ariba-1"><span class="header-section-number">3.2</span> ARIBA</h2>
+<p>As explained in the previous section, ARIBA locally assembles and maps selective genes known to confer antimicrobial resistance (AMR). ARIBA was executed within a Docker container obtained from sangerpathogens. Reference sequences relevant to the experiment are downloaded from the CARD database <span class="citation" data-cites="alcock_card_2023">[<a href="#ref-alcock_card_2023" role="doc-biblioref">17</a>]</span>. This reference database needs to be prepared before running ARIBA, using the <code>ariba prepareref</code> command.</p>
+<p>ARIBA is then applied to isolate data with paired reads. It generates a report with various details about the reference sequences and read counts. Additionally, it creates a compressed file containing assembled sequences and genes. Since a multitude of reads must be processed, the study developed and employed a Python script that runs ARIBA on a list of SRA IDs in parallel, directing the output to a specified folder. A subfolder is created for each isolate, named after its SRA ID, to store the results.</p>
+<p>Furthermore, the <code>ariba summary</code> command creates a minimal report for each isolate by analyzing the output files from the previous step. In this summary file, each cluster is given a column, and a ‘yes’ or ‘no’ corresponding to the cluster indicates whether the cluster was found in the read.</p>
+<p>Both the compressed file and the summary output contribute to the feature generation in the following steps.</p>
+</section>
+<section id="preparation-of-features-and-labels" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="preparation-of-features-and-labels"><span class="header-section-number">3.3</span> Preparation of features and labels</h2>
+<p>A python script was used to create features and labels for each of the isolates used in the traditional machine learning algorithms. In order to achieve this, initially a text file containing a list of variants and detected AMR-associated genes is created. This is done by looping over all the report files and summary files created by ARIBA for the isolates and appending the list of variants and genes that appear in at least one of the isolates. Additionally, two dictionaries are also created. A dictionary of SRA accession numbers as keys and their corresponding lineage information as values is made after reading the spreadsheet containing the lineage information. Another dictionary is generated after it reads the tabular separated phenotypic data and maps the SRA accession numbers with the corresponding DST information for each of the TB drugs.</p>
+<p>For each drug, if an SRA accession number maps to a value of 0 or 1 in the phenotypic dictionary, the accession number is added to a list and saved in a text file. A feature array is created for each drug by parsing the report files created by ARIBA, where 1 denotes the presence or variance in the genes and 0 denotes the absence listed in the raw features file created before. Additionally, the lineage information from the lineage dictionary is also appended to this array. The <code>generate_featureVector_forOneIsoform</code> function in the python script is responsible for generating the feature vector for a single isolate.</p>
+<p>This function is iteratively used to create a feature array for the four drugs. This generated array is stored as a text file named <code>featureM_X_{drug}.txt</code>. The corresponding label is taken from the phenotype dictionary for the isolates listed in each drug and listed in <code>label_Y_{drug}</code>. For example, if 7138 isolates were found to have a phenotype for the drug Ethambutol and a total of 293 raw features, including lineage, were present, the feature array for each isolate would be a 1-dimensional array of length 293. There will be 7138 such feature arrays and corresponding labels present for the drug ethambutol.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ML.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Features and labels prepared for traditional ML. The left-hand side of the figure illustrates the layout of 293 features for the 7138 samples. Right hand side represents the labels corresponding to each sample.</figcaption>
+</figure>
+</div>
+</section>
+<section id="traditional-machine-learning" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="traditional-machine-learning"><span class="header-section-number">3.4</span> Traditional Machine Learning</h2>
+<p>The outputs created by the previous step of the pipeline will serve as the input for the traditional machine learning algorithms - LR and RF. A single python script was developed and used to generate the metrics of both LR and RF for each of the drugs in the study.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>clf <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">100</span>, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                             random_state<span class="op">=</span><span class="dv">0</span>, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                             n_jobs<span class="op">=-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>creates an instance of the <code>RandomForestClassifier</code> class from the <code>sklearn.ensemble</code> module where <code>n_estimators</code> denote the number of decision trees in the forest, <code>random_states</code>, which should be an integer between 0 and 42 (although random, using the same integer will produce the same results across different calls) controls the randomness of the bootstrapping of the samples, and <code>n_jobs</code> denote the number of jobs to be run in parallel (-1 makes use of all processors available).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rf_results <span class="op">=</span> cross_validate(clf.fit(X, y),</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                            X, y, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                            scoring<span class="op">=</span>scoring,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                            cv<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will fit the model with the loaded features and labels, X and Y, respectively. The training and testing are validated here by a method called cross-validation (CV). CV = 10 means that the dataset will be divided into 10 subsets, and training and testing will be done 10 times. Each training cycle is done using any nine of the subsets, and the remaining serves as a test subset to validate the model. The average score of these 10 iterations will then be selected as the model’s metrics.</p>
+<p>Similarly,&nbsp;</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>log <span class="op">=</span> LogisticRegression(n_jobs<span class="op">=-</span><span class="dv">1</span>, penalty<span class="op">=</span><span class="st">"l2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>calls an instance of logistic regression, which uses ridge regularisation as a penalty. Identical to the Random Forest algorithm, 10-fold cross-validation is performed for logistic regression using:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lr_results <span class="op">=</span> cross_validate(log.fit(X, y),</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                            X, y,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                            scoring<span class="op">=</span>scoring,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                            cv<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The script outputs True Positives, True Negatives, False Positives, False Negatives, Accuracy, Specificity, Sensitivity, Precision and F-Measure for each drug and algorithm used.</p>
+</section>
+<section id="feature-selection" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="feature-selection"><span class="header-section-number">3.5</span> Feature selection</h2>
+<p>CNN, just like other deep learning algorithms, is computationally expensive. If all the features from the previous step are used to train and test the CNN model, it will take a considerable amount of time. Thus, there is a need to select important features from the total number of features to run the model on. To give a perspective, even after trimming the feature, it takes on average 2 hours to completely test and train the datasets for each drug. <code>feature_importances_</code> attribute and the <code>SelectFromModel</code> method of the random forest classifier are used for this purpose.</p>
+<p>Initially, a RF model is created for a drug, and the metrics are generated. Each feature has a feature importance score, which is a metric of relative importance associated with it.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">min</span>(clf.feature_importances_) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>will provide the minimum feature importance score and</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">max</span>(clf.feature_importances_) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>will provide the maximum.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sfm <span class="op">=</span> SelectFromModel(clf, threshold<span class="op">=</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                      feature_imp_threshold)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>will train the model with features that have an importance score equal to or greater than the one specified. Starting from the minimum feature importance score and incrementing the score by 0.0001 for each step until the threshold reaches the maximum feature importance score; iteratively training the model only with features that pass the feature importance threshold, the best important threshold that maximises the F1 score can be found. The script <code>select_important_feaures.py</code> applies the above logic and outputs the best feature importance threshold that maximises the F1 score and the features that have an importance score equal to or more than this best threshold for each drug. Only these features are selected to create the dataset for the CNN to train on.</p>
+</section>
+<section id="cnn-model" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="cnn-model"><span class="header-section-number">3.6</span> CNN model</h2>
+<p>Using a subset of features that have feature scores that optimise the F1 score, the CNN binary classifier model for each drug will be trained and tested.</p>
+<section id="feature-matrix-for-cnn" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="feature-matrix-for-cnn"><span class="header-section-number">3.6.1</span> Feature matrix for CNN</h3>
+<p>There are two kinds of features in AMR prediction.</p>
+<ul>
+<li>Lineage or gene present: These are features whose mere absence or presence will determine the resistance or susceptibility of an isolate to certain antimicrobials.</li>
+<li>Variants: These are also known as SNP features. These are single nucleotide differences in genes that cause AMR.</li>
+</ul>
+<p>In the case of lineage or gene present features, their presence or absence is binarily represented. On the other hand, each SNP variant feature is represented using a 4x21 matrix. The rows indicate the normalised DNA base counts (ACGT), and the columns are a 21-base reference sequence window centred on the focal SNP.</p>
+<p>This is achieved by a python script. For each drug, the script loops over the selected SNP variants and further loops over all the SRA isolates that have known DST data of the drug to access the report file <code>/outRun_{sra}/report.tsv</code> and a compressed file <code>/outRun_{sra}/clusters/{cluster}/assembly.reads_mapped.bam.read_depths.gz</code> reported by ARIBA. These informations locate the SNP and create a normalised window of 21 bases with the SNP at its centre. Base counts are normalised by dividing the count of each base by the total depth. Depth indicates the number of times the particular nucleotide was sequenced in the run. This is a metric for quality.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Window.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Representation of 21-base reference window which serve as the CNN input of each selected SNP feature <span class="citation" data-cites="kuang_accurate_2022">[<a href="#ref-kuang_accurate_2022" role="doc-biblioref">10</a>]</span>. The initial raw base counts were obtained through the alignment of reference reads, as depicted in the left side of this illustration. The SNP feature is centered within the window. The normalised base counts at each location represent the proportion of the four DNA bases (ACGT) individually.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="featurecnn.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">CNN Features. An illustration of the layout of the CNN feature input, comprising 80 features across 6,775 samples. The 21x4 window of each variant input is also displayed.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CNN_lab.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">CNN Labels. A schematic depiction of labels for 6,775 samples.</figcaption>
+</figure>
+</div>
+<p>The <code>generate_var_inputFromOneIsolate</code> function in the script creates the feature matrix of a single isolate. Similar to traditional ML, this is repeated over all the isolates associated with each drug. Additionally, these matrices are appended with the 1-dimensional lineage and gene present information and thus constitute the feature data for CNN.</p>
+<p>If, for example, 80 features were selected as having importance, out of which 30 are variant features, the input for each isolate would have 30 arrays with 4x21 matrices and 1 array of length 50 that has binary information about lineage and gene presence. Note that array is used not as a datatype but as a term to visualise the data as columns and rows. The feature data created here is a list of lists.</p>
+<p>Just like traditional ML, a 10-fold CV is performed to train and test these models. The model was compiled with batch sizes of 256 and 100 epochs.</p>
+</section>
+<section id="cnn-architecture" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="cnn-architecture"><span class="header-section-number">3.6.2</span> CNN architecture</h3>
+<p>A 1-dimensional multi-input binary classifier CNN model is created for each drug. 1D CNN utilises 1D convulsion kernels. If one considers the example above, the CNN model would receive 31 inputs for each isolate. Each variant input will be processed with two convulsion layers (kernel sizes 5 and 3, respectively) and maxpool layers (kernel size 3). Maxpool layers are used in CNN to scale down the data by using a kernel of a certain dimension similar to the convulsion layer, but instead of dot products, it outputs only the maximum value in the kernel. After that, the input is flattened and concatenated with each other, and then the lineage and gene present data. This flattened data is passed through subsequent layers of neural networks, which are listed below.</p>
+<ul>
+<li>A dense layer with 960 neurons.</li>
+<li>A dropout layer with a dropout rate of 0.3.</li>
+<li>A dense layer with 640 neurons.</li>
+<li>A dropout layer, dropout rate - 0.3.</li>
+<li>A dense layer with 320 neurons.</li>
+<li>A dropout layer, dropout rate - 0.3.</li>
+<li>A dense layer with 160 neurons.</li>
+<li>A dropout layer, dropout rate - 0.3.</li>
+<li>A dense layer with 80 neurons.</li>
+<li>A dropout layer, dropout rate - 0.3.</li>
+<li>A dense layer with 40 neurons.</li>
+<li>A dropout layer, dropout rate - 0.3.</li>
+<li>A dense layer with 1 neuron (output layer).</li>
+</ul>
+<p>This architecture which is represented in Figure 12, smoothly integrates sequential feature data and non-sequential feature data.</p>
+<p>The following parameters were used:</p>
+<ul>
+<li>Activation function: ReLU, except for the output neuron, where sigmoid was used.</li>
+<li>Optimisation: SGD</li>
+<li>Learning rate: 0.004</li>
+<li>Loss: binary cross entropy</li>
+<li>Regulariser: L2&nbsp;</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CNN.png" height="600" class="figure-img"></p>
+<figcaption class="figure-caption">Flowchart of CNN architecture used in the study <span class="citation" data-cites="kuang_accurate_2022">[<a href="#ref-kuang_accurate_2022" role="doc-biblioref">10</a>]</span>.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="evaluation-using-mykrobe" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="evaluation-using-mykrobe"><span class="header-section-number">3.7</span> Evaluation using Mykrobe</h2>
+<p>Mykrobe supports a command-line tool that would generate a DST report within minutes. Similar to ARIBA, a Docker image from phelimb/mykrobe_predictor was used to access Mykrobe. The <code>mykrobe predict</code> command of the Mykrobe command line tool takes in sample Id, species name and location of the sequence to be analysed to output the result in desired format.</p>
+<p>A script was developed by the original study which parallelised and automated the process across each SRA number. Figure 13 is an example of a report generated by Mykrobe.</p>
+<p>As part of evaluation, a python script was used to extract the DST prediction from the comma-separated-value files provided as output by Mykrobe, compare it with the phenotypic DST, and calculate the F1 scores of the Mykrobe prediction for each drug. It was made sure that the SRAs used in evaluation were the same as the SRA IDs used to build machine learning models for each drug. This was done by passing the list of SRA isolates that were found to have drug susceptibility data associated with them to the function <code>get_mykrobe_prediction</code> in the script.</p>
+<p>The list generated for each drug from the function is cross-referenced with the label data file present for the drug to calculate the F1 score.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mykrobe.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Mykrobe example report. Mykrobe outputs the drug susceptibility, represented by ‘R’ for resistance and ‘S’ for susceptibility. It also provides additional information, such as the variant gene’s name.</figcaption>
+</figure>
+</div>
+<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="contribution" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Contribution</h1>
+<p>As stated by the study itself, the pipeline used to train and test traditional ML models and CNN models has room for improvement. An attempt to improve some aspects of the pipeline is described below.</p>
+<section id="hard-coded-lineage-gene-present-and-variant-features" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="hard-coded-lineage-gene-present-and-variant-features"><span class="header-section-number">4.1</span> Hard coded lineage, gene present and variant features</h2>
+<p>In the later part of the pipeline used by the study to build a CNN model for each drug after selecting the important features, the selected features were hardcoded into the code. Instead of hardcoding, the script can be modified to extract the important features automatically. The following steps were taken to automate the task.</p>
+<ol type="1">
+<li>The script mentioned in the section Feature selection selects the features that maximises the F1-score. In the study, the output list of optimal features for each drug had to be copy pasted to the CNN script. Instead, some lines of code were added to the script which saves the features in a dictionary and made to store on a structured data format.</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tuned_features <span class="op">=</span> {<span class="st">"Ethambutol"</span>:[], <span class="st">"Isoniazid"</span>:[],</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Pyrazinamide"</span>:[], <span class="st">"Rifampicin"</span>:[]}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>An empty dictionary is initialised for the drugs. After the script determines the best features, instead of printing them, they are made to be stored in the dictionary.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tuned_features[drug].append <span class="op">\</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>(feat_labels[feature_list_index])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>json.dumps</code> is used to save this dictionary in the working directory.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"tuned_features.json"</span>, <span class="st">"w"</span>) <span class="im">as</span> outfile:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    outfile.write(json.dumps(tuned_features))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><p>As mentioned in the section Preparation of features and labels, a text file consisting all the features is created which serves as the base for feature generation. Since variants and lineage/gene presence have different data structures, there is a need for differentiation. In addition to feature list file, another text file containing a list of lineages and gene presence named <code>genepresent.txt</code> is generated while running the script. This serves as a means to classify variants and gene presence.&nbsp;</p></li>
+<li><p>As mentioned before, variants and gene presence/lineage have different data structures and the script requires two sets of dictionaries for them in each drug. In the CNN script, both the structured data file containing the important features of each drug -<code>tuned_features.json</code>- and the file containing list of lineages and genepresent file -<code>genepresent.txt</code>- was loaded and made to store in variables <code>tuned</code> and <code>lin_gen</code> respectively. Set operations was performed on them to differentiate and store two dictionaries containing variant feature list and lineage/gene presence feature list. For each drug, the lineage/gene present would be the intersection of the sets <code>lin_gen</code> and <code>tuned[drug]</code>. Similarly, variants can be found by subtracting set <code>lin_gen</code> from the set <code>tuned[drug]</code>. Two dictionaries with each drug as a key and variant and lineage/gene present are stored, which thus serves as a substitute for the need for hardcoding. The Figure 14 represents the logic behind this.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Venn_feat.png" class="img-fluid figure-img" width="300"></p>
+<figcaption class="figure-caption">The logic behind differentiation of variants and lineage/gene presence features. The contents of JSON file and genepresent.txt is a subset of the list of all features. The important lineage/gene present features of each drug would be the features that is present both in tuned_features.json and genepresent.txt. Similarly, the important variant features of each drug would be present in tuned_features.json but not in genepresent.txt.</figcaption>
+</figure>
+</div>
+</section>
+<section id="hyperparameter-tuning" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="hyperparameter-tuning"><span class="header-section-number">4.2</span> Hyperparameter tuning</h2>
+<p>The performance of the model can be improved by changing some hyperparameters, such as the learning rate, activation function, loss function, etc. To do this, a script was prepared. For faster results, the CNN models, feature input data, and labels were saved in the working directory so that they could be easily loaded by the script.</p>
+<section id="saving-the-model-features-and-labels" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="saving-the-model-features-and-labels"><span class="header-section-number">4.2.1</span> Saving the model, features and labels</h3>
+<p>Instead of creating a CNN model from scratch each time it is used to train with certain parameters, the model could be stored and loaded later. This is also useful to train and test the model later with a new dataset.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model.save(<span class="st">'path/to/location.keras'</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The saved model can be later loaded using the</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> keras.models.load_model(<span class="st">'path/to/location.keras'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Similarly, the feature and label for each drug can be ‘pickled’ using a python library with the same name. This saves a python object hierarchy by converting it into a byte stream.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'feature_'</span> <span class="op">+</span> drug <span class="op">+</span> <span class="st">'.pkl'</span>, <span class="st">'wb'</span>) <span class="im">as</span> h:</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        pickle.dump(X, h)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'label_'</span><span class="op">+</span> drug <span class="op">+</span> <span class="st">'.pkl'</span>, <span class="st">'wb'</span>) <span class="im">as</span> h:</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        pickle.dump(Y, h)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This can be unpickled later to save data preparation time.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'feature_'</span> <span class="op">+</span>drug<span class="op">+</span> <span class="st">'.pkl'</span>, <span class="st">'rb'</span>) <span class="im">as</span> f:</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>            X <span class="op">=</span> pickle.load(f)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'label_'</span><span class="op">+</span>drug<span class="op">+</span> <span class="st">'.pkl'</span>, <span class="st">'rb'</span>) <span class="im">as</span> f:</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>            Y <span class="op">=</span> pickle.load(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="grid-search-algorithm" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="grid-search-algorithm"><span class="header-section-number">4.2.2</span> Grid search algorithm</h3>
+<p>In this case of hyperparameter tuning, grid search refers to an approach where each and every combination of the parameters specified is searched through to find the best combination of hyperparameters that maximise the F1 score. Here, activation function, optimisation, learning rate,loss, regulariser, and dropout were the hyperparameters selected for tuning.</p>
+<p>Since there were two GPUs available, in order to parallelise the hyperparameter tuning, two separate scripts were developed, each corresponding to two drugs. Each script contains three functions: <code>main()</code>, <code>mod_eval(drug)</code>, and <code>equalposneg(X,Y,model)</code>.</p>
+<section id="defining-the-parameters" class="level4" data-number="4.2.2.1">
+<h4 data-number="4.2.2.1" class="anchored" data-anchor-id="defining-the-parameters"><span class="header-section-number">4.2.2.1</span> Defining the parameters</h4>
+<p>The parameters to which the grid search is applied are defined.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>acti <span class="op">=</span> [<span class="st">"tf.keras.activations.relu"</span>,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">"keras.layers.LeakyReLU"</span>,<span class="st">"mish"</span>]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>opti <span class="op">=</span> [<span class="st">"SGD"</span>,<span class="st">"Adam"</span>,<span class="st">"RMSprop"</span>]</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>l_r <span class="op">=</span> [<span class="fl">0.004</span>,<span class="fl">0.0004</span>]</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>loss <span class="op">=</span> [<span class="st">"binary_crossentropy"</span>,<span class="st">"MeanSquaredError"</span>]</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> [<span class="st">"L2"</span>,<span class="st">"L1"</span>]</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>drput <span class="op">=</span> [<span class="fl">0.3</span>,<span class="fl">0.1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="main" class="level4" data-number="4.2.2.2">
+<h4 data-number="4.2.2.2" class="anchored" data-anchor-id="main"><span class="header-section-number">4.2.2.2</span> Main()</h4>
+<p>This is the starting point of execution, where the drugs and GPU are specified. As specified before, each drug pair uses a single GPU to work on.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">"CUDA_VISIBLE_DEVICES"</span>] <span class="op">=</span> <span class="st">"1"</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>orders the script to use only GPU 1 while running. In this specific case, rifampicin and pyrazinamide utilise GPU 1, and ethambutol and isoniazid utilise GPU 0. Usually, Tensorflow allocates the full GPU memory once it is initialised. This runs the risk of throwing an out-of-memory error while working on huge datasets. To counteract this,</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>tf.config.experimental.set_memory_growth(gup[<span class="dv">0</span>], <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>was set to True, which would force TensorFlow to initiate on a limited memory and expand this memory when and if necessary. The main function also initialises the script to loop through the drugs to load, train, and test CNN models.</p>
+</section>
+<section id="mod_evaldrug" class="level4" data-number="4.2.2.3">
+<h4 data-number="4.2.2.3" class="anchored" data-anchor-id="mod_evaldrug"><span class="header-section-number">4.2.2.3</span> mod_eval(drug)</h4>
+<p>This function loads the saved model, feature, and labels to pass them on to the next function as arguments. <code>itertools.product</code> in the itertools library was used to find all the combinations possible from the six parameters to be tuned. 144 combinations of parameters were to be analysed.</p>
+<p>Since this is a time-consuming process, if the script was broken halfway due to unforeseen reasons, a measure was taken that would ensure that the script would continue where it stopped. A caching logic was applied, which would save the progress and the best metrics somewhere, and if the script had to run again, it would check for saved caches and resume the iteration from where it was broken.</p>
+<p>The parameters from each combination were applied to the loaded model using</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>model.optimizer<span class="op">=</span> <span class="bu">eval</span>((<span class="ss">f'</span><span class="sc">{</span>combi[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">(learning_rate= </span><span class="ch">\</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ss">                       </span><span class="sc">{</span>combi[<span class="dv">2</span>]<span class="sc">}</span><span class="ss">)'</span>)) <span class="co">#learning rate</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>            model.loss <span class="op">=</span>  <span class="bu">eval</span>(<span class="ss">f'keras.losses.</span><span class="sc">{</span>combi[<span class="dv">3</span>]<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> layer <span class="kw">in</span> model.layers:</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                      <span class="co">#activation and regulariser</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="bu">isinstance</span>(layer, (Dense,Conv1D)):</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>                    config <span class="op">=</span> layer.get_config()</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>                    config[<span class="st">'activation'</span>] <span class="op">=</span> combi[<span class="dv">0</span>]</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>                    config[<span class="st">'kernel_regularizer'</span>] <span class="op">=</span> </span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>                      <span class="bu">eval</span>(<span class="ss">f'keras.regularizers.</span><span class="sc">{</span>combi[<span class="dv">4</span>]<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="bu">isinstance</span>(layer, (Dropout)):                          </span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>                      <span class="co"># Dropout rate</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>                        layer.rate <span class="op">=</span> combi[<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here, the next function <code>equalposneg(X,Y,model)</code> is called.</p>
+<p>The last part of the function calculates the F1 score from the metrics returned by the function <code>equalposneg</code> and stores the parameters used in the iteration and the corresponding F1 score in a text file.&nbsp;</p>
+</section>
+<section id="equalposnegxymodel" class="level4" data-number="4.2.2.4">
+<h4 data-number="4.2.2.4" class="anchored" data-anchor-id="equalposnegxymodel"><span class="header-section-number">4.2.2.4</span> equalposneg(X,Y,model)</h4>
+<p>This function equally divides the features and labels into 10 parts to perform a 10-fold CV. The model is trained and tested using the training set and testing set, which have equal proportions of negative and positive samples.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>model.fit(trainX, trainY, epochs<span class="op">=</span><span class="dv">100</span>, batch_size<span class="op">=</span><span class="dv">256</span>,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>          verbose<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>test_metrics <span class="op">=</span> model.evaluate(testX, testY, </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                              verbose<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="traditional-ml-and-cnn-to-evaluate-dst-of-s.-aureus" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="traditional-ml-and-cnn-to-evaluate-dst-of-s.-aureus"><span class="header-section-number">4.3</span> Traditional ML and CNN to evaluate DST of S. aureus</h2>
+<p>The final part of the thesis is an attempt to utilise the pipeline developed by the study to build and evaluate traditional ML and CNN for DST prediction of another pathogen with high AMR rate. A rapid, accurate, and cost-effective S. aureus DST predictor could impede the swift emergence of highly resistant pathogen strains that are not treatable with existing medications.</p>
+<p>The first step in that attempt is to procure phenotypic DST data for S. aureus isolates. Phentypic DST data for 674 isolates were obtained from a study published in 2018 (Whole-Genome Sequencing and Machine Learning Analysis of S. aureus from Multiple Heterogeneous Sources in China Reveals Common Genetic Traits of Antimicrobial Resistance <span class="citation" data-cites="wang_whole-genome_2021">[<a href="#ref-wang_whole-genome_2021" role="doc-biblioref">44</a>]</span>). Additionally, DST data for 966 isolates was procured from a study published in 2015 (Rapid antibiotic-resistance predictions from genome sequence data for Staphylococcus aureus and Mycobacterium tuberculosis <span class="citation" data-cites="bradley_rapid_2015-1">[<a href="#ref-bradley_rapid_2015-1" role="doc-biblioref">45</a>]</span>).</p>
+<p>A total of 1640 isolates were used to train and test the DST prediction of traditional ML and CNN for four first-line drugs against S. aureus: meticillin, ciprofloxacin, erythromycin, and tetracycline. For the 966 isolates from the second study, some of the accession numbers were in the format ERS instead of SRA or SAM. ERS accession numbers cannot be used to access Fasta files using the SRA toolkit. To deal with this, an application programming interface (API). from EMBL’s European Bioinformatics Institute <span class="citation" data-cites="madeira_search_2022">[<a href="#ref-madeira_search_2022" role="doc-biblioref">46</a>]</span> was used. First, extensible markup language (XML) files that contain information about the experiment were downloaded for each ERS accession number using the API. Corresponding ERR numbers were fetched from each XML file, and a dictionary was created that contains the ERS number as a key and the corresponding ERR number as a value. This was later used to replace the ERS with the ERR.</p>
+<p>The results and metrics associated with the study replication, hyperparameter tuning, and S. aureus DST prediction will be shared and compared in the next section.</p>
+<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="evaluation" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Evaluation</h1>
+<p>This section illustrates the results and comparisons associated with this thesis in three parts. Study replication, hyperparameter tuning, and S. aureus DST prediction.</p>
+<section id="study-replication-comparison" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="study-replication-comparison"><span class="header-section-number">5.1</span> Study replication comparison</h2>
+<p>In order to successfully compare the results between the study and this thesis, the data used to create the training data should be comparable. To cross-check this, the correspondents of the original study were contacted, and their assistance was requested. They were kind enough to share the unique SRA ids of 10580 isolates used in their study, along with the IDs of isolates used in each drug. Upon cross-checking, two main differences in data between the study and the thesis were found.</p>
+<ol type="1">
+<li>Six isolates were missing from the thesis data. ‘SRR1952705’, ‘SRR1952706’, ‘SRR1952721’, ‘SRR1948177’, ‘SRR1952684’. These IDs were found to correspond only forward reads in the NCBI database. Since ARIBA accepts only paired reads as input, these six SRA IDs were discarded from the thesis.</li>
+<li>Discrepancy in SRA isolates, that were found to have DST data available for ethambutol and isoniazid, was found. In the case of ethambutol, instead of 7138 isolates that were found to have DST data associated with them, only 6775 were present in the thesis. Similarly, instead of 7137 isolates for isoniazid, only 6951 were found in the thesis. Upon inspection, the missing isolates do not correspond to the DST data of the respective drugs in the original PDF accompanying the study from where the phenotypic data was procured <span class="citation" data-cites="the_cryptic_consortium_and_the_100000_genomes_project_prediction_2018">[<a href="#ref-the_cryptic_consortium_and_the_100000_genomes_project_prediction_2018" role="doc-biblioref">12</a>]</span>.</li>
+</ol>
+<p>In the original study, the results from traditional ML and CNN were compared with Mykrobe. This was replicated in this thesis as well. The image pulled for the Mykrobe predictor was from quay.io/biocontainers.</p>
+<p>The Tensorflow Keras library was utilised to perform CNN and Scikit library was used to perform logistic regression and random forest in this thesis.</p>
+<table class="table">
+<caption>F1 score comparison from the study</caption>
+<thead>
+<tr class="header">
+<th>Drug</th>
+<th style="text-align: left;">LR F1 %</th>
+<th style="text-align: right;">RF F1 %</th>
+<th style="text-align: center;">CNN F1 %</th>
+<th style="text-align: center;">Mykrobe F1 %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Isoniazid</td>
+<td style="text-align: left;">96.7</td>
+<td style="text-align: right;">97.0</td>
+<td style="text-align: center;">97.2</td>
+<td style="text-align: center;">95.9</td>
+</tr>
+<tr class="even">
+<td>Pyrazinamide</td>
+<td style="text-align: left;">94.2</td>
+<td style="text-align: right;">94.3</td>
+<td style="text-align: center;">94.8</td>
+<td style="text-align: center;">93.1</td>
+</tr>
+<tr class="odd">
+<td>Rifampicin</td>
+<td style="text-align: left;">95.8</td>
+<td style="text-align: right;">95.6</td>
+<td style="text-align: center;">96.2</td>
+<td style="text-align: center;">93.7</td>
+</tr>
+<tr class="even">
+<td>Ethambutol</td>
+<td style="text-align: left;">93.3</td>
+<td style="text-align: right;">93.6</td>
+<td style="text-align: center;">93.8</td>
+<td style="text-align: center;">81.1</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<caption>F1 score comparison from the thesis</caption>
+<thead>
+<tr class="header">
+<th>Drug</th>
+<th style="text-align: left;">LR F1 %</th>
+<th style="text-align: right;">RF F1 %</th>
+<th style="text-align: center;">CNN F1 %</th>
+<th style="text-align: center;">Mykrobe F1 %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Isoniazid</td>
+<td style="text-align: left;">96.5</td>
+<td style="text-align: right;">96.9</td>
+<td style="text-align: center;">96.3</td>
+<td style="text-align: center;">98</td>
+</tr>
+<tr class="even">
+<td>Pyrazinamide</td>
+<td style="text-align: left;">94.4</td>
+<td style="text-align: right;">94.2</td>
+<td style="text-align: center;">93.8</td>
+<td style="text-align: center;">96.8</td>
+</tr>
+<tr class="odd">
+<td>Rifampicin</td>
+<td style="text-align: left;">95.6</td>
+<td style="text-align: right;">95.6</td>
+<td style="text-align: center;">95</td>
+<td style="text-align: center;">98.2</td>
+</tr>
+<tr class="even">
+<td>Ethambutol</td>
+<td style="text-align: left;">94.5</td>
+<td style="text-align: right;">93.9</td>
+<td style="text-align: center;">93.3</td>
+<td style="text-align: center;">94.5</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hyperparameter-tuning-1" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="hyperparameter-tuning-1"><span class="header-section-number">5.2</span> Hyperparameter tuning</h2>
+<p>The best parameters that maximised the F1 score for each drug are tabulated below.</p>
+<table class="table">
+<caption>Parameters that maximised F1 scores for each drug. Here, INH - Isoniazid, PZA - Pyrazinamide, RIF - Rifampicin and EMB - Ethambutol, BCE - binary cross entropy, MSE - mean squared error, DR - dropout rate.</caption>
+<thead>
+<tr class="header">
+<th>Drug</th>
+<th style="text-align: left;">AF</th>
+<th style="text-align: right;">Optimiser</th>
+<th style="text-align: center;">LR</th>
+<th style="text-align: center;">Loss</th>
+<th style="text-align: center;">Regulariser</th>
+<th style="text-align: center;">DR</th>
+<th style="text-align: center;">F1 score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>INH</td>
+<td style="text-align: left;">mish</td>
+<td style="text-align: right;">SGD</td>
+<td style="text-align: center;">0.0004</td>
+<td style="text-align: center;">BCE</td>
+<td style="text-align: center;">L2</td>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">97.6</td>
+</tr>
+<tr class="even">
+<td>PZA</td>
+<td style="text-align: left;">mish</td>
+<td style="text-align: right;">RMS prop</td>
+<td style="text-align: center;">0.004</td>
+<td style="text-align: center;">MSE</td>
+<td style="text-align: center;">L2</td>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">97.2</td>
+</tr>
+<tr class="odd">
+<td>RIF</td>
+<td style="text-align: left;">mish</td>
+<td style="text-align: right;">SGD</td>
+<td style="text-align: center;">0.004</td>
+<td style="text-align: center;">MSE</td>
+<td style="text-align: center;">L1</td>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">96.6</td>
+</tr>
+<tr class="even">
+<td>EMB</td>
+<td style="text-align: left;">mish</td>
+<td style="text-align: right;">RMS prop</td>
+<td style="text-align: center;">0.0004</td>
+<td style="text-align: center;">BCE</td>
+<td style="text-align: center;">L1</td>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">96.4</td>
+</tr>
+</tbody>
+</table>
+<p>Hyperparameter tuning significantly enhanced CNN’s performance across all drugs, resulting in a notable 3.4% improvement in pyrazinamide. As a result, CNN with tuned hyperparameters now surpasses Mykrobe for pyrazinamide and ethambutol.</p>
+</section>
+<section id="s.-aureus-dst-prediction" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="s.-aureus-dst-prediction"><span class="header-section-number">5.3</span> S. aureus DST prediction</h2>
+<p>The aforementioned 1640 isolates were used as a dataset for this purpose. Since the dataset was small compared to the original study, only 116 features were identified. Hence, the feature-importance step was skipped. Since all four hyperparameter combinations performed similarly, the combination that maximised the F1 score for Isoniazid was selected at random for building the CNN architecture. The total number of samples that have phenotypic DST data associated with each drug and F1 scores of traditional ML along with CNN is tabulated below.</p>
+<table class="table">
+<caption>F1 score comparison of S. aureus.</caption>
+<thead>
+<tr class="header">
+<th>Drug</th>
+<th style="text-align: left;">Sample size</th>
+<th style="text-align: left;">LR F1 %</th>
+<th style="text-align: right;">RF F1 %</th>
+<th style="text-align: center;">CNN F1 %</th>
+<th style="text-align: center;">Mykrobe F1 %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Methicillin</td>
+<td style="text-align: left;">966</td>
+<td style="text-align: left;">98.4</td>
+<td style="text-align: right;">98.7</td>
+<td style="text-align: center;">98.5</td>
+<td style="text-align: center;">99.9</td>
+</tr>
+<tr class="even">
+<td>Ciprofloxacin</td>
+<td style="text-align: left;">1587</td>
+<td style="text-align: left;">96.4</td>
+<td style="text-align: right;">96.1</td>
+<td style="text-align: center;">95.9</td>
+<td style="text-align: center;">95.9</td>
+</tr>
+<tr class="odd">
+<td>Erythromycin</td>
+<td style="text-align: left;">1633</td>
+<td style="text-align: left;">82.1</td>
+<td style="text-align: right;">81.6</td>
+<td style="text-align: center;">82.7</td>
+<td style="text-align: center;">93.6</td>
+</tr>
+<tr class="even">
+<td>Tetracycline</td>
+<td style="text-align: left;">1576</td>
+<td style="text-align: left;">96</td>
+<td style="text-align: right;">96.5</td>
+<td style="text-align: center;">94.3</td>
+<td style="text-align: center;">95.3</td>
+</tr>
+</tbody>
+</table>
+<p>As shown in Table 4, traditional ML outperforms CNN in all drugs except for erythromycin, where the difference factor is only 0.1. While CNN could only match the performance of Mykrobe exclusively in the case of ciproflaxin, the F1 score of LR and RF stands out, particularly in ciprofloxacin and tetracycline, where the results are superior to Mykrobe’s.</p>
+<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="conclusion" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Conclusion</h1>
+<p>The goal of this thesis was to replicate the study, improve CNN performance, and generate ML models for S. aureus. As one can see in the evaluation section, LR, RF and CNN used to outperform Mykrobe when the study was conducted. However, Mykrobe has improved its performance since the publication of the study, and it clearly outperforms traditional ML and CNN. But hyperparameter tuning has improved the CNN classifier and was able to generate slightly better results than Mykrobe, except in the case of isoniazid. In S. aureus DST prediction, CNN did not show an outstanding result. CNN had an equal F1-score with mykrobe only in ciproflaxin.</p>
+<p>My inference from this thesis is that CNN cannot be perceived as a fast and reliable means for predicting DST both in MTB and S. aureus. Nonetheless, additional hyperparameters can also be tuned to optimise the model. Since grid search is an exhaustive approach to selecting for this purpose, other algorithms like bayesian optimisation or random search could be used in the future for hyperparameter tuning.</p>
+<p>Although Mykrobe emerges triumphant almost everywhere, traditional ML can still be considered a close competitor, even surpassing Mykrobe in ciprofloxacin and tetracycline. The discovery of new genetic mutations in the future might increase the performance of traditional ML. As an alternative means for detecting AMR, software could be developed that takes FASTA files as input, performs targeted local assemblies of relevant gene loci, and uses a traditional ML algorithm to generate a report similar to Mykrobe.</p>
+<p>Additionally, feature importance selection in this pipeline could be utilised to rank and study the importance of different lineages, SNPs, or genes that contribute to AMR.</p>
+<p>Utilising the rapid developments in the field of Artificial Intelligence and the commendable performance of other methods such as rule-based approaches like Mykrobe, humankind can save itself from the rapid growth of antibiotic resistant pathogens. Simultaneously, there is a potential for significant financial benefits in the field of medicine by thoroughly scrutinizing and comparing various approaches to DST prediction.</p>
+<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="bibliography" class="level1 unnumbered" data-number="7">
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">7 Bibliography</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-cavicchioli2019scientists" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Cavicchioli R et al (2019) Scientists’ warning to humanity: Microorganisms and climate change. Nature Reviews Microbiology 17(9):569–86. <a href="https://doi.org/10.1038/s41579-019-0222-5">https://doi.org/10.1038/s41579-019-0222-5</a></div>
+</div>
+<div id="ref-nih_microbiome_2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">National Institutes of Health (NIH) (2015) NIH human microbiome project defines normal bacterial makeup of the body. <a href="https://www.nih.gov/news-events/news-releases/nih-human-microbiome-project-defines-normal-bacterial-makeup-body">https://www.nih.gov/news-events/news-releases/nih-human-microbiome-project-defines-normal-bacterial-makeup-body</a>. Accessed 12 Sep 2023</div>
+</div>
+<div id="ref-noauthor_global_nodate" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Global action plan on antimicrobial resistance. <a href="https://fctc.who.int/publications/i/item/global-action-plan-on-antimicrobial-resistance">https://fctc.who.int/publications/i/item/global-action-plan-on-antimicrobial-resistance</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-noauthor_antimicrobial_nodate" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Antimicrobial resistance. <a href="https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance">https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-world_health_organization_antimicrobial_2014" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">World Health Organization (2014) <a href="https://apps.who.int/iris/handle/10665/112642">Antimicrobial resistance: Global report on surveillance</a>. World Health Organization, Geneva</div>
+</div>
+<div id="ref-meletis_carbapenem_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Meletis G (2016) Carbapenem resistance: Overview of the problem and future perspectives. Therapeutic Advances in Infectious Disease 3(1):15–21. <a href="https://doi.org/10.1177/2049936115621709">https://doi.org/10.1177/2049936115621709</a></div>
+</div>
+<div id="ref-noauthor_antibiotic_nodate" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Antibiotic susceptibility testing. <a href="https://www.sysmex-europe.com/products/diagnostics/antibiotic-susceptibility-testing.html">https://www.sysmex-europe.com/products/diagnostics/antibiotic-susceptibility-testing.html</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-10.3389/fimmu.2022.870768" class="csl-entry" role="listitem">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">Yusoof KA, García JI, Schami A, et al (2022) Tuberculosis phenotypic and genotypic drug susceptibility testing and immunodiagnostics: A review. Frontiers in Immunology 13. <a href="https://doi.org/10.3389/fimmu.2022.870768">https://doi.org/10.3389/fimmu.2022.870768</a></div>
+</div>
+<div id="ref-noauthor_tuberculosis_nodate" class="csl-entry" role="listitem">
+<div class="csl-left-margin">9. </div><div class="csl-right-inline">Tuberculosis (<span>TB</span>). <a href="https://www.who.int/news-room/fact-sheets/detail/tuberculosis">https://www.who.int/news-room/fact-sheets/detail/tuberculosis</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-kuang_accurate_2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline">Kuang X, Wang F, Hernandez KM, Zhang Z, Grossman RL (2022) Accurate and rapid prediction of tuberculosis drug resistance from genome sequence data using traditional machine learning algorithms and <span>CNN</span>. Scientific Reports 12:2427. <a href="https://doi.org/10.1038/s41598-022-06449-4">https://doi.org/10.1038/s41598-022-06449-4</a></div>
+</div>
+<div id="ref-github_mtb_amr_cnn" class="csl-entry" role="listitem">
+<div class="csl-left-margin">11. </div><div class="csl-right-inline">Kuang X (2022) MTB-AMR classification CNN. <a href="https://github.com/KuangXY3/MTB-AMR-classification-CNN">https://github.com/KuangXY3/MTB-AMR-classification-CNN</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-the_cryptic_consortium_and_the_100000_genomes_project_prediction_2018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">12. </div><div class="csl-right-inline">The CRyPTIC Consortium and the 100,000 Genomes Project (2018) Prediction of <span>Susceptibility</span> to <span>First</span>-<span>Line</span> <span>Tuberculosis</span> <span>Drugs</span> by <span>DNA</span> <span>Sequencing</span>. New England Journal of Medicine 379(15):1403–1415. <a href="https://doi.org/10.1056/NEJMoa1800474">https://doi.org/10.1056/NEJMoa1800474</a></div>
+</div>
+<div id="ref-chambers_waves_2009" class="csl-entry" role="listitem">
+<div class="csl-left-margin">13. </div><div class="csl-right-inline">Chambers HF, DeLeo FR (2009) Waves of <span>Resistance</span>: <span>Staphylococcus</span> aureus in the <span>Antibiotic</span> <span>Era</span>. Nature reviews Microbiology 7(9):629–641. <a href="https://doi.org/10.1038/nrmicro2200">https://doi.org/10.1038/nrmicro2200</a></div>
+</div>
+<div id="ref-cdc_staph_infections" class="csl-entry" role="listitem">
+<div class="csl-left-margin">14. </div><div class="csl-right-inline">Centers for Disease Control and Prevention (2019) Deadly staph infections. <a href="https://www.cdc.gov/media/releases/2019/p0305-deadly-staph-infections.html">https://www.cdc.gov/media/releases/2019/p0305-deadly-staph-infections.html</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-kim_drug-susceptibility_2005" class="csl-entry" role="listitem">
+<div class="csl-left-margin">15. </div><div class="csl-right-inline">Kim SJ (2005) Drug-susceptibility testing in tuberculosis: Methods and reliability of results. European Respiratory Journal 25(3):564–569. <a href="https://doi.org/10.1183/09031936.05.00111304">https://doi.org/10.1183/09031936.05.00111304</a></div>
+</div>
+<div id="ref-gillespie_patric_2011" class="csl-entry" role="listitem">
+<div class="csl-left-margin">16. </div><div class="csl-right-inline">Gillespie JJ, Wattam AR, Cammer SA, et al (2011) <span>PATRIC</span>: The <span>Comprehensive</span> <span>Bacterial</span> <span>Bioinformatics</span> <span>Resource</span> with a <span>Focus</span> on <span>Human</span> <span>Pathogenic</span> <span>Species</span>. Infection and Immunity 79(11):4286–4298. <a href="https://doi.org/10.1128/IAI.00207-11">https://doi.org/10.1128/IAI.00207-11</a></div>
+</div>
+<div id="ref-alcock_card_2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">17. </div><div class="csl-right-inline">Alcock BP, Huynh W, Chalil R, et al (2023) <span>CARD</span> 2023: Expanded curation, support for machine learning, and resistome prediction at the <span>Comprehensive</span> <span>Antibiotic</span> <span>Resistance</span> <span>Database</span>. Nucleic Acids Research 51(D1):D690–D699. <a href="https://doi.org/10.1093/nar/gkac920">https://doi.org/10.1093/nar/gkac920</a></div>
+</div>
+<div id="ref-ezewudo_integrating_2018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">18. </div><div class="csl-right-inline">Ezewudo M, Borens A, Chiner-Oms Á, et al (2018) Integrating standardized whole genome sequence analysis with a global <span>Mycobacterium</span> tuberculosis antibiotic resistance knowledgebase. Scientific Reports 8(1):15382. <a href="https://doi.org/10.1038/s41598-018-33731-1">https://doi.org/10.1038/s41598-018-33731-1</a></div>
+</div>
+<div id="ref-ngo_genomic_2019" class="csl-entry" role="listitem">
+<div class="csl-left-margin">19. </div><div class="csl-right-inline">Ngo T-M, Teo Y-Y (2019) Genomic prediction of tuberculosis drug-resistance: Benchmarking existing databases and prediction algorithms. BMC Bioinformatics 20(1):68. <a href="https://doi.org/10.1186/s12859-019-2658-z">https://doi.org/10.1186/s12859-019-2658-z</a></div>
+</div>
+<div id="ref-gupta_arg-annot_2014" class="csl-entry" role="listitem">
+<div class="csl-left-margin">20. </div><div class="csl-right-inline">Gupta SK, Padmanabhan BR, Diene SM, et al (2014) <span>ARG</span>-<span>ANNOT</span>, a <span>New</span> <span>Bioinformatic</span> <span>Tool</span> <span>To</span> <span>Discover</span> <span>Antibiotic</span> <span>Resistance</span> <span>Genes</span> in <span>Bacterial</span> <span>Genomes</span>. Antimicrobial Agents and Chemotherapy 58(1):212–220. <a href="https://doi.org/10.1128/AAC.01310-13">https://doi.org/10.1128/AAC.01310-13</a></div>
+</div>
+<div id="ref-lakin_megares_2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">21. </div><div class="csl-right-inline">Lakin SM, Dean C, Noyes NR, et al (2017) <span>MEGARes</span>: An antimicrobial resistance database for high throughput sequencing. Nucleic Acids Research 45(D1):D574–D580. <a href="https://doi.org/10.1093/nar/gkw1009">https://doi.org/10.1093/nar/gkw1009</a></div>
+</div>
+<div id="ref-florensa_resfinder_2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">22. </div><div class="csl-right-inline">Florensa AF, Kaas RS, Clausen PTLC, Aytan-Aktug D, Aarestrup FM (2022) <span>ResFinder</span> – an open online resource for identification of antimicrobial resistance genes in next-generation sequencing data and prediction of phenotypes from genotypes. Microbial Genomics 8(1). <a href="https://doi.org/10.1099/mgen.0.000748">https://doi.org/10.1099/mgen.0.000748</a></div>
+</div>
+<div id="ref-hunt_ariba:_2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">23. </div><div class="csl-right-inline">Hunt M, Mather AE, Sánchez-Busó L, et al (2017) <span>ARIBA</span>: Rapid antimicrobial resistance genotyping directly from sequencing reads. Microbial Genomics 3(10):e000131. <a href="https://doi.org/10.1099/mgen.0.000131">https://doi.org/10.1099/mgen.0.000131</a></div>
+</div>
+<div id="ref-bradley_rapid_2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">24. </div><div class="csl-right-inline">Bradley P, Gordon NC, Walker TM, et al (2015) Rapid antibiotic-resistance predictions from genome sequence data for <span>Staphylococcus</span> aureus and <span>Mycobacterium</span> tuberculosis. Nature Communications 6:10063. <a href="https://doi.org/10.1038/ncomms10063">https://doi.org/10.1038/ncomms10063</a></div>
+</div>
+<div id="ref-compeau_why_2011" class="csl-entry" role="listitem">
+<div class="csl-left-margin">25. </div><div class="csl-right-inline">Compeau PEC, Pevzner PA, Tesler G (2011) Why are de <span>Bruijn</span> graphs useful for genome assembly? Nature biotechnology 29(11):987–991. <a href="https://doi.org/10.1038/nbt.2023">https://doi.org/10.1038/nbt.2023</a></div>
+</div>
+<div id="ref-noauthor_ai_nodate" class="csl-entry" role="listitem">
+<div class="csl-left-margin">26. </div><div class="csl-right-inline"><span>AI</span> vs. <span>Machine</span> <span>Learning</span>: <span>How</span> <span>Do</span> <span>They</span> <span>Differ</span>? In: Google Cloud. <a href="https://cloud.google.com/learn/artificial-intelligence-vs-machine-learning">https://cloud.google.com/learn/artificial-intelligence-vs-machine-learning</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-alpaydin2010introduction" class="csl-entry" role="listitem">
+<div class="csl-left-margin">27. </div><div class="csl-right-inline">Alpaydin E (2010) Introduction to machine learning, 2nd ed. MIT Press</div>
+</div>
+<div id="ref-sharma_4_2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">28. </div><div class="csl-right-inline">Sharma R (2023) 4 <span>Types</span> of <span>Machine</span> <span>Learning</span> <span>For</span> a <span>Great</span> <span>Career</span> in <span>Tech</span>. In: Emeritus - Online Certificate Courses <span></span> Diploma Programs. <a href="https://emeritus.org/in/learn/types-of-machine-learning/">https://emeritus.org/in/learn/types-of-machine-learning/</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-machinelearningmastery" class="csl-entry" role="listitem">
+<div class="csl-left-margin">29. </div><div class="csl-right-inline">Brownlee J (2016) Logistic regression for machine learning. <a href="https://machinelearningmastery.com/logistic-regression-for-machine-learning/">https://machinelearningmastery.com/logistic-regression-for-machine-learning/</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-jang_ml-logistic_2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">30. </div><div class="csl-right-inline">Jang J (2021) <span>ML</span>-<span>Logistic</span> regression. In: Medium. <a href="https://medium.com/@shiny_jay/logistic-regression-a9a8749e1e68">https://medium.com/@shiny_jay/logistic-regression-a9a8749e1e68</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-noauthor_what_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">31. </div><div class="csl-right-inline">(2020) What is <span>Random</span> <span>Forest</span>? [<span>Beginner</span>’s <span>Guide</span> + <span>Examples</span>]. <a href="https://careerfoundry.com/en/blog/data-analytics/what-is-random-forest/">https://careerfoundry.com/en/blog/data-analytics/what-is-random-forest/</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-noauthor_what_nodate" class="csl-entry" role="listitem">
+<div class="csl-left-margin">32. </div><div class="csl-right-inline">What are <span>Neural</span> <span>Networks</span>? <span></span> <span>IBM</span>. <a href="https://www.ibm.com/topics/neural-networks">https://www.ibm.com/topics/neural-networks</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-towardsdatascience_training" class="csl-entry" role="listitem">
+<div class="csl-left-margin">33. </div><div class="csl-right-inline">Towards Data Science (2018) Training deep neural networks. <a href="https://towardsdatascience.com/training-deep-neural-networks-9fdb1964b964">https://towardsdatascience.com/training-deep-neural-networks-9fdb1964b964</a>. Accessed 12 Sep 2023</div>
+</div>
+<div id="ref-mishra_convolutional_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">34. </div><div class="csl-right-inline">Mishra M (2020) Convolutional <span>Neural</span> <span>Networks</span>, <span>Explained</span>. In: Medium. <a href="https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939">https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-NIPS2012_c399862d" class="csl-entry" role="listitem">
+<div class="csl-left-margin">35. </div><div class="csl-right-inline">Krizhevsky A, Sutskever I, Hinton GE (2012) <a href="https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf">ImageNet classification with deep convolutional neural networks</a>. In: Pereira F, Burges CJ, Bottou L, Weinberger KQ (eds) Advances in neural information processing systems. Curran Associates, Inc.</div>
+</div>
+<div id="ref-lowe_distinctive_2004" class="csl-entry" role="listitem">
+<div class="csl-left-margin">36. </div><div class="csl-right-inline">Lowe DG (2004) Distinctive <span>Image</span> <span>Features</span> from <span>Scale</span>-<span>Invariant</span> <span>Keypoints</span>. International Journal of Computer Vision 60(2):91–110. <a href="https://doi.org/10.1023/B:VISI.0000029664.99615.94">https://doi.org/10.1023/B:VISI.0000029664.99615.94</a></div>
+</div>
+<div id="ref-noauthor_activation_nodate" class="csl-entry" role="listitem">
+<div class="csl-left-margin">37. </div><div class="csl-right-inline">Activation <span>Functions</span> in <span>Neural</span> <span>Networks</span> [12 <span>Types</span> &amp; <span>Use</span> <span>Cases</span>]. <a href="https://www.v7labs.com/blog/neural-networks-activation-functions, https://www.v7labs.com/blog/neural-networks-activation-functions">https://www.v7labs.com/blog/neural-networks-activation-functions, https://www.v7labs.com/blog/neural-networks-activation-functions</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-kaggle_relu_notebook" class="csl-entry" role="listitem">
+<div class="csl-left-margin">38. </div><div class="csl-right-inline">B D (2018) Rectified linear units (ReLU) in deep learning. <a href="https://www.kaggle.com/code/dansbecker/rectified-linear-units-relu-in-deep-learning/notebook">https://www.kaggle.com/code/dansbecker/rectified-linear-units-relu-in-deep-learning/notebook</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-paperswithcode_leakyrelu" class="csl-entry" role="listitem">
+<div class="csl-left-margin">39. </div><div class="csl-right-inline">Papers with Code Leaky ReLU. <a href="https://paperswithcode.com/method/leaky-relu">https://paperswithcode.com/method/leaky-relu</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-misra_mish_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">40. </div><div class="csl-right-inline">Misra D (2020) Mish: <span>A</span> <span>Self</span> <span>Regularized</span> <span>Non</span>-<span>Monotonic</span> <span>Activation</span> <span>Function</span>. <a href="https://doi.org/10.48550/arXiv.1908.08681">https://doi.org/10.48550/arXiv.1908.08681</a></div>
+</div>
+<div id="ref-keetha_u-det_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">41. </div><div class="csl-right-inline">Keetha NV, P SAB, Annavarapu CSR (2020) U-<span>Det</span>: <span>A</span> <span>Modified</span> <span>U</span>-<span>Net</span> architecture with bidirectional feature network for lung nodule segmentation. <a href="https://doi.org/10.48550/ARXIV.2003.09293">https://doi.org/10.48550/ARXIV.2003.09293</a></div>
+</div>
+<div id="ref-machinelearningmastery-loss" class="csl-entry" role="listitem">
+<div class="csl-left-margin">42. </div><div class="csl-right-inline">Brownlee J (2019) Loss and loss functions for training deep learning neural networks. <a href="https://machinelearningmastery.com/loss-and-loss-functions-for-training-deep-learning-neural-networks/">https://machinelearningmastery.com/loss-and-loss-functions-for-training-deep-learning-neural-networks/</a>. Accessed 14 Sep 2023</div>
+</div>
+<div id="ref-leinonen_sequence:2011" class="csl-entry" role="listitem">
+<div class="csl-left-margin">43. </div><div class="csl-right-inline">Leinonen R, Sugawara H, Shumway M, on behalf of the International Nucleotide Sequence Database Collaboration (2011) The <span>Sequence</span> <span>Read</span> <span>Archive</span>. Nucleic Acids Research 39(Database):D19–D21. <a href="https://doi.org/10.1093/nar/gkq1019">https://doi.org/10.1093/nar/gkq1019</a></div>
+</div>
+<div id="ref-wang_whole-genome_2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">44. </div><div class="csl-right-inline">Wang W, Baker M, Hu Y, et al (2021) Whole-<span>Genome</span> <span>Sequencing</span> and <span>Machine</span> <span>Learning</span> <span>Analysis</span> of <span>Staphylococcus</span> aureus from <span>Multiple</span> <span>Heterogeneous</span> <span>Sources</span> in <span>China</span> <span>Reveals</span> <span>Common</span> <span>Genetic</span> <span>Traits</span> of <span>Antimicrobial</span> <span>Resistance</span>. mSystems 6(3):10.1128/msystems.01185–20. <a href="https://doi.org/10.1128/msystems.01185-20">https://doi.org/10.1128/msystems.01185-20</a></div>
+</div>
+<div id="ref-bradley_rapid_2015-1" class="csl-entry" role="listitem">
+<div class="csl-left-margin">45. </div><div class="csl-right-inline">Bradley P, Gordon NC, Walker TM, et al (2015) Rapid antibiotic-resistance predictions from genome sequence data for <span>Staphylococcus</span> aureus and <span>Mycobacterium</span> tuberculosis. Nature Communications 6(1):10063. <a href="https://doi.org/10.1038/ncomms10063">https://doi.org/10.1038/ncomms10063</a></div>
+</div>
+<div id="ref-madeira_search_2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">46. </div><div class="csl-right-inline">Madeira F, Pearce M, Tivey ARN, et al (2022) Search and sequence analysis tools services from <span>EMBL</span>-<span>EBI</span> in 2022. Nucleic Acids Research 50(W1):W276–W279. <a href="https://doi.org/10.1093/nar/gkac240">https://doi.org/10.1093/nar/gkac240</a></div>
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
