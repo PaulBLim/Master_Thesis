@@ -7,22 +7,19 @@ Author - Varun Sree Bholalayam (00807289)
 
 ## Problem Introduction
 
-Reinforcement learning (RL) is a branch of machine that is concerned with training agents to make progressive decisions in an environment to maximize a numerical reward signal. In RL, a learning agent senses the state of its environment and takes iterative actions to improve its policy, such that the expected reward along its trajectory is maximized.
+Reinforcement learning (RL) is a branch of machine that is concerned with training agents to make progressive decisions in an environment to maximize a numerical reward signal. In RL, a learning agent senses the state of its environment and takes iterative actions to improve its policy, such that the expected reward along its trajectory is maximized <sup>2</sup>.
 
-Unlike supervised learning which relies on labeled datasets or unsupervised learning which tries to find structure in sets of labeled data sets, in RL the learner must discover which actions yield the best reward by trial and error. These two characteristics, trial and error search, and delayed reward are the two most important distinguishing features of reinforcement learning.
+Unlike supervised learning which relies on labeled datasets or unsupervised learning which tries to find structure in sets of labeled data sets, in RL the learner must discover which actions yield the best reward by trial and error. These two characteristics, trial and error search, and delayed reward are the two most important distinguishing features of reinforcement learning<sup>1</sup>.
 
+RL has found widespread success in many application areas including self-driving cars <sup>4</sup>, robotics in space exploration <sup>5</sup>, surveillance <sup>6</sup>, wearable healthcare devices <sup>7</sup>, and much more. Accelerating Reinforcement learning with FPGAs (Field-Programmable Gate Arrays) can offer a range of advantages and address specific problems associated with RL applications. Architectures consisting of a blend of CPUs and FPGAs have become a good solution for accelerating RL. A few examples include 
 
-Some examples of dangerous organisms with a high AMR potential are:
+1. Accelerating both computation and memory-intensive AI applications <sup>8</sup>.
+2. Hardware acceleration by configuring FPGAs to accelerate key operations such as a high-throughput on-chip accelerator for Prioritized Replay Buffer<sup>2</sup>.
+3. Optimizing for specific RL algorithms, such as developing a high-throughput PPO accelerator by accelerating computational intensive phases <sup>3</sup>.
 
-1. Drug resistant tuberculosis
-2. Methicillin-resistant Staphylococcus aureus
-3. Multidrug-resistant Pseudomonas aeruginosa.
+Proximal Policy Optimization (PPO) is a state-of-the-art policy optimization method that has been shown to achieve superior overall performance on various Reinforced Learning Benchmarks. The aim is to make the biggest possible improvement step on a policy using the data we currently have, without stepping so far that we accidentally cause performance collapse<sup>9</sup>. Each iteration of PPO includes the inference face where an agent interacts with its environment to collect data, and a Training Phase where the agent trains the policy using the collected data. 
 
-Drug susceptibility tests (DST) is a typical method to determine whether the pathogen has evolved to resist the antimicrobial drug. Two well-known clinical DST methods are genotypic and phenotypic DST. Phenotypic DST have limitations including extended turnaround time for slow-growing bacteria such as Mycobacterium tuberculosis (MTB) and bias due to potential contamination<sup>2</sup>. Genotypic DST employs WGS to detect the presence of genes that can cause AMR against a given drug<sup>3</sup>.
-
-An example of a genotypic DST tool is Mykrobe predictor, which uses De Bruijn graph representation of bacterial diversity to identify species and resistance profiles of clinical isolates<sup>4</sup>. Mykrobe employs a rule based machine learning algorithm for prediction. However since genetic mechanisms that result in evolution of AMR genes are rapid, the competence of deterministic ML methods like RBML is questionable. 
-
-A recent study<sup>2</sup> published in 2022 compared traditional ML, CNN, Mykrobe and reported that CNN had higher accuracy. However the used CNN leaves room for improvement with respect to the used hyperparameters for training. Moreover paper<sup>2</sup> was not replicated nor applied on other bacteria.
+A study <sup>3</sup> published in 2020 developed a high-throughput PPO accelerator, using a CPU_FPGA heterogenous infrastructure, by accelerating both the Inference and training Phases which are both computationally intensive. This achieved 2.1X to 30.5X improvements in throughput against state-of-the-art CPU and 2X to 27.5X improvements against CPU-GPU implementations. 
 
 
 ## Research Questions
@@ -64,10 +61,14 @@ Goal is to output and compare the features such as precision, sensitivity, speci
 
 ## References
 
-1. Shankar, Pr. (2016). Book review: Tackling drug-resistant infections globally. Archives of Pharmacy Practice, 7(3), 110. https://doi.org/10.4103/2045-080x.186181
-2. Kuang, X., Wang, F., Hernandez, K. M., Zhang, Z., & Grossman, R. L. (2022). Accurate and rapid prediction of tuberculosis drug resistance from genome sequence data using traditional machine learning algorithms and CNN. Scientific Reports, 12(1). https://doi.org/10.1038/s41598-022-06449-4
-3. Aung, W. W., Ei, P. W., Nyunt, W. W., Swe, T. L., Lwin, T., Htwe, M. M., Kim, K. J., Lee, J. S., Kim, C. K., Cho, S. N., Song, S. D., & Chang, C. L. (2015). Phenotypic and genotypic analysis of anti-tuberculosis drug resistance in Mycobacterium tuberculosis isolates in Myanmar. Annals of laboratory medicine, 35(5), 494–499. https://doi.org/10.3343/alm.2015.35.5.494
-4. Bradley, P., Gordon, N. C., Walker, T. M., Dunn, L., Heys, S., Huang, B., Earle, S., Pankhurst, L. J., Anson, L., de Cesare, M., Piazza, P., Votintseva, A. A., Golubchik, T., Wilson, D. J., Wyllie, D. H., Diel, R., Niemann, S., Feuerriegel, S., Kohl, T. A., … Iqbal, Z. (2015). Rapid antibiotic-resistance predictions from genome sequence data for Staphylococcus aureus and Mycobacterium tuberculosis. Nature Communications, 6(1). https://doi.org/10.1038/ncomms10063
-5. Hunt, M., Mather, A. E., Sánchez-Busó, L., Page, A. J., Parkhill, J., Keane, J. A., & Harris, S. R. (2017). ARIBA: rapid antimicrobial resistance genotyping directly from sequencing reads. Microbial Genomics, 3(10). https://doi.org/10.1099/mgen.0.000131
-6. Alcock, B. P., Huynh, W., Chalil, R., Smith, K. W., Raphenya, A. R., Wlodarski, M. A., Edalatmand, A., Petkau, A., Syed, S. A., Tsang, K. K., Baker, S. J. C., Dave, M., McCarthy, M. C., Mukiri, K. M., Nasir, J. A., Golbon, B., Imtiaz, H., Jiang, X., Kaur, K., … McArthur, A. G. (2022). CARD 2023: expanded curation, support for machine learning, and resistome prediction at the Comprehensive Antibiotic Resistance Database. Nucleic Acids Research, 51(D1), D690–D699. https://doi.org/10.1093/nar/gkac920
+1. Richard S. Sutton and Andrew G. Barto, (2018). Reinforcement Learning: An Introduction, 2
+2. Yuan Meng, Chi Zhang, Viktor Prasanna, (2022). FPGA acceleration of deep reinforcement learning using on-chip replay management. Association for Computing Machinery. https://doi.org/10.1145/3528416.3530227
+3. Y. Meng, S. Kuppannagari and V. Prasanna, (2020). Accelerating Proximal Policy Optimization on CPU-FPGA Heterogeneous Platforms.  2020 IEEE 28th Annual International Symposium on Field-Programmable Custom Computing Machines (FCCM). https://doi.org/10.1109/FCCM48280.2020.00012
+4. S. Shalev-Shwartz, S. Shammah, and A. Shashua (2016).Safe, multiagent, reinforcement learning for autonomous driving. arXiv preprintarXiv:1610.03295, .https://doi.org/10.48550/arXiv.1610.03295
+5. P. R. Gankidi, (2016). Fpga accelerator architecture for q-learning and its applications in space exploration rovers. Ph.D. dissertation, Arizona State University.
+6. P. Remagnino, A. Shihab, and G. A. Jones, (2004). Distributed intelligence for multi-camera visual surveillance. Pattern Recognition 37(4):675-689. https://doi.org/10.1016/j.patcog.2003.09.017
+7. P. Hamet and J. Tremblay, (2017). Artificial intelligence in medicine. Metabolism, 69:S36–S40. https://doi.org/10.1016/j.metabol.2017.01.011
+8. Andrea Damiani, Giorgia Fiscaletti, Marco Bacis, Rolando Brondolin, and Marco D Santambrogio. (2022). BlastFunction: A Full-stack Framework Bringing FPGA Hardware Acceleration to Cloud-native Applications. ACM Transactions on Reconfigurable Technology and Systems (TRETS) 15(2):1–27. https://doi.org/10.1145/3472958
+9. Spinning Up (2018). Proximal Policy Optimization, Open Ai, 2.01.2024. https://spinningup.openai.com/en/latest/algorithms/ppo.html#proximal-policy-optimization
+
 
