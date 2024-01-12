@@ -7,7 +7,10 @@ Author - Varun Sree Bholalayam (00807289)
 
 ## Problem Introduction
 
-Antimicrobial Resistance (AMR) occurs when bacteria, viruses, fungi and parasites evolve over time and no longer respond to medicines making infections harder to treat and increasing the risk of disease spread, severe illness and death. AMR is a much overlooked aspect in the field of public health since the predicted mortality rate due to AMR by the year 2050 is more concerning than cancer<sup>1</sup>.
+Reinforcement learning (RL) is a branch of machine that is concerned with training agents to make progressive decisions in an environment to maximize a numerical reward signal. In RL, a learning agent senses the state of its environment and takes iterative actions to improve its policy, such that the expected reward along its trajectory is maximized.
+
+Unlike supervised learning which relies on labeled datasets or unsupervised learning which tries to find structure in sets of labeled data sets, in RL the learner must discover which actions yield the best reward by trial and error. These two characteristics, trial and error search, and delayed reward are the two most important distinguishing features of reinforcement learning.
+
 
 Some examples of dangerous organisms with a high AMR potential are:
 
