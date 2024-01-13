@@ -24,38 +24,39 @@ A study <sup>3</sup> published in 2020 developed a high-throughput PPO accelerat
 
 ## Research Questions
 
-The motivation for the following research questions stem from <sup>2</sup>:
+The motivation for the following research questions stems from <sup>3</sup> :
 
-1. Replicating the results obtained from the paper<sup>2</sup> which compares 4 ML algorithms. (Logistic regression, random forest, convolutional neural network and rule based machine learning). 
-2. Can the CNN part of the pipeline be improved for higher accuracy by hyperparameter tuning?
-3. Can the same pipeline be tweaked to predict drug resistance in Staphylococcus aureus?
+1. Integrating the Alveo board with the Gymnasium environment in a convenient way for the development and testing of acceleration algorithms for RL.
+2. Recreating the results obtained from the paper<sup>3</sup> which accelerates Proximal Policy Optimization on CPU-FPGA Heterogenous platforms. 
+3. Compare my results to that of the paper <sup>3</sup> and suggest improvements to the methods used in the paper. 
 
 
 ## Methodology
 
-1. WGS data of 10,575 mycobacterium tuberculosis (MTB) isolates will be collected from Sequence read archive (SRA) and corresponding lineage and phenotypic DST data from CRyPTIC Consortium and the 100,000 Genomes project.
-2. To obtain the  genetic features possibly responsible for drug resistance, ARIBA will be employed. ARIBA uses a partial assembly mode of operation to identify AMR genes<sup>5</sup>. Unassembled reads are taken as an input and only necessary parts of the DNA are assembled and mapped to a curated AMR gene database such as CARD<sup>6</sup>. 
-3. Output of ARIBA  combined with the lineage data should serve as the dataset for LR and RF and thereafter CNN.
-4. Both of the machine learning and the CNN models will be trained with the datasets and the quality of the predictions will be evaluated.
-5. Mykrobe predictor can be used to predict drug resistance of these 10,575 isolates and its predictive qualities will be compared with the machine learning and CNN results.
-6. Further I plan to tune the hyperparameters of CNN and see if it brings any improvement in accuracy of the model.
-7. Lastly I plan to use the same machine and deep learning pipeline to try and build a model for predicting drug susceptibility in Staphylococcus aureus.
+1. <b>Literature Review and Paper Understanding<b/>
+  Thoroughly study <sup>3</sup> and related papers on accelerating PPO on CPU-FPGA Heterogeneous Architecture.
+  Study and familiarise myself with the Gymnasium environment and how to create a custom Gym environment if needed.  
+3. <b>Eniroment Intergration<b/>
+  Develop an interface or wrapper that connects the Alveo board functionalities with Gymnasium's environment interface by creating a custom Gym environment or modifying an existing one to communicate with the Alveo board.
+Validate the integration by running simple tests. Ensure that the Gym environment properly interacts with the Alveo board and that the agent (if any) can learn or operate within this environment
+5. <b>Recreating of Accelerator<b/>
+  Recreate the Accelerator based on details from <sup>3</sup> 
+6. <b>Testing and and Comparison<b/>
 
 
 ## Research Goal
 
-Goal is to output and compare the features such as precision, sensitivity, specificity, accuracy, F1 and G-mean of all the models as well as Mykrobe predictor for MTB and attempt hyperparameter tuning to improve these features if possible. Thenceforth, this work can pave the way for a more efficient DST for Staphylococcus aureus.
+The goal is to reproduce the high-throughput PPO accelerator on a CPU-FPGA Heterogenous architecture as done in the paper <sup>3</sup>, to compare my results to those in the paper and propose possible improvements.  
 
 
 ## Time Plan
 
 | Month | Intended work |
 | --- | --- |
-| 1 | Understanding the idea and scope of machine learning and deep learning in DST prediction|
-| 2 | Data collection, ARIBA implementation, dataset preparation |
-| 3 | Training models, determining significance of prediction |
-| 4 | Comparison of machine learning and rule-based approach, hyperparameter tuning |
-| 5 | Testing with Staphylococcus aureus dataset, determining quality of prediction, thesis writing |
+| 1 | Understanding Pappers on PPO implementation and familiarization with Gymnasium|
+| 2 | Integrating the Alveo |
+| 3 & 4| Recreating <sup>3</sup> |
+| 5 | Testing Evaluation and Optimization of PPO accelerator  |
 | 6 | Thesis writing |
 
 
