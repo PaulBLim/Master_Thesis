@@ -51,7 +51,7 @@ The motivation for the following research questions stems from <sup>3</sup> :
 4.<strong>Testing and and Comparison</strong>
    <ul>
       <li>Testing the resultant performance and comparing it to state-of-the-art CPU only and CPU-GPU implementations.</li>
-      <li> exploring and suggesting possible improvements./li>
+      <li> exploring and suggesting possible improvements.</li>
     </ul>
 
 
