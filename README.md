@@ -38,18 +38,18 @@ The motivation for the following research questions stems from <sup>3</sup> :
   <li>Thoroughly studying <sup>3</sup> and related papers on accelerating PPO on CPU-FPGA Heterogeneous Architecture.</li>
   <li>Studying and familiarizing myself with the Gymnasium environment and how to modify an existing Gym environment if I need to.</li>  
 </ul>
-3.<strong>Eniroment Intergration</strong>
+2.<strong>Eniroment Intergration</strong>
   <ul>
-  <li>Developing an interface or wrapper that connects the Alveo board functionalities with Gymnasium's environment interface.</li>
-  <li>Validateing the integration by running simple tests to ensure that the Gym environment properly interacts with the Alveo board and that the agent can learn within this environment.</li>
-  <ul>
-5. <strong>Recreating of Accelerator</strong>
+    <li>Developing an interface or wrapper that connects the Alveo board functionalities with Gymnasium's environment interface.</li>
+    <li>Validateing the integration by running simple tests to ensure that the Gym environment properly interacts with the Alveo board and that the agent can learn within this environment.</li>
+  </ul>
+3. <strong>Recreating of Accelerator</strong>
   <ul>
      <li>Recreating the design of a systolic, array-based FPGA accelerator to enable parallel inferences and high-throughput training of neural networks representing value and policy functions.</li>
      <li>Designing a systolic array compute sharing-based load-balancing technique that shares the compute units between the value network and policy network to deal with potential load imbalances in       training as in the paper.</li>
   </ul>
-6. <strong>Testing and and Comparison</strong>
-    <ul>
+4. <strong>Testing and and Comparison</strong>
+   <ul>
       <li>Testing the resultant performance and comparing it to state-of-the-art CPU only and CPU-GPU implementations.</li>
       <li> exploring and suggesting possible improvements./li>
     </ul>
