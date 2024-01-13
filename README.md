@@ -1,8 +1,8 @@
-# Deep learning vs traditional ML algorithms for AMR detection
+# Accelerating Proximal Policy Optimization on CPU-FPGA Heterogeneous Platforms
 
 Master Thesis Proposal
 
-Author - Varun Sree Bholalayam (00807289)
+Author - Bungansa Paul Limnyuy 
 
 
 ## Problem Introduction
