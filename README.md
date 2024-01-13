@@ -33,12 +33,15 @@ The motivation for the following research questions stems from <sup>3</sup> :
 
 ## Methodology
 
-1. <b>Literature Review and Paper Understanding<b/>
-  Thoroughly study <sup>3</sup> and related papers on accelerating PPO on CPU-FPGA Heterogeneous Architecture.
-  Study and familiarise myself with the Gymnasium environment and how to create a custom Gym environment if needed.  
+1. <strong>Literature Review and Paper Understanding</strong>
+<ul>
+  <li>Thoroughly study <sup>3</sup> and related papers on accelerating PPO on CPU-FPGA Heterogeneous Architecture.</li>
+  <li>Study and familiarise myself with the Gymnasium environment and how to modify an existing Gym environment.</li>  
+</ul>
 3. <b>Eniroment Intergration<b/>
-  Develop an interface or wrapper that connects the Alveo board functionalities with Gymnasium's environment interface by creating a custom Gym environment or modifying an existing one to communicate with the Alveo board.
-Validate the integration by running simple tests. Ensure that the Gym environment properly interacts with the Alveo board and that the agent (if any) can learn or operate within this environment
+  Develop an interface or wrapper that connects the Alveo board functionalities with Gymnasium's environment interface.
+  modifying an existing one to communicate with the Alveo board.
+  Validate the integration by running simple tests to ensure that the Gym environment properly interacts with the Alveo board and that the agent can learn within this environment
 5. <b>Recreating of Accelerator<b/>
   Recreate the Accelerator based on details from <sup>3</sup> 
 6. <b>Testing and and Comparison<b/>
@@ -54,9 +57,9 @@ The goal is to reproduce the high-throughput PPO accelerator on a CPU-FPGA Heter
 | Month | Intended work |
 | --- | --- |
 | 1 | Understanding Pappers on PPO implementation and familiarization with Gymnasium|
-| 2 | Integrating the Alveo |
-| 3 & 4| Recreating <sup>3</sup> |
-| 5 | Testing Evaluation and Optimization of PPO accelerator  |
+| 2 | Conveniently Integrating the Alveo board with the Gymnasium environment |
+| 3 & 4| Recreating the architecture in the paper <sup>3</sup> |
+| 5 | Testing Evaluation and Optimization of PPO Accelerator  |
 | 6 | Thesis writing |
 
 
